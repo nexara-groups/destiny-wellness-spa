@@ -128,7 +128,11 @@ function ServiceCard({
   return (
     <article className={`card ${delayClass}`} data-card>
       <div className="card-visual">
-        <div className={`img ${meta.imageClass} parallax-img`} />
+        <div 
+          className={`img ${meta.imageClass} parallax-img`} 
+          role="img" 
+          aria-label={`Cinematic view of our ${service.name}`} 
+        />
         <div className="label">{meta.kicker}</div>
         <div className="ordinal">{meta.ordinal}</div>
       </div>
@@ -204,7 +208,11 @@ function ServiceDetailModal({
         </button>
 
         <div className="service-modal-visual">
-          <div className={`img ${meta.imageClass}`} />
+          <div 
+            className={`img ${meta.imageClass}`} 
+            role="img" 
+            aria-label={`Detailed view of ${service.name}`} 
+          />
           <div className="label">{meta.kicker}</div>
         </div>
 
@@ -272,6 +280,18 @@ function ServiceDetailModal({
 export default function DestinyV4Page() {
   const [reviewService, setReviewService] = useState<Service | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isLightMode, setIsLightMode] = useState(false);
+
+  useEffect(() => {
+    if (isLightMode) {
+      document.body.classList.add('light-theme');
+    } else {
+      document.body.classList.remove('light-theme');
+    }
+    return () => {
+      document.body.classList.remove('light-theme');
+    };
+  }, [isLightMode]);
   const therapies = useMemo(
     () => SERVICES.filter((service) => SERVICE_META[service.id]?.section === 'therapies'),
     []
@@ -389,8 +409,8 @@ export default function DestinyV4Page() {
       if (dot) dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%,-50%)`;
     };
     const cursorLoop = () => {
-      cursorX += (mouseX - cursorX) * 0.18;
-      cursorY += (mouseY - cursorY) * 0.18;
+      cursorX += (mouseX - cursorX) * 0.12;
+      cursorY += (mouseY - cursorY) * 0.12;
       if (cursor) cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%,-50%)`;
       raf = requestAnimationFrame(cursorLoop);
     };
@@ -413,7 +433,7 @@ export default function DestinyV4Page() {
   }, []);
 
   return (
-    <main className="spa-v4">
+    <main className={`spa-v4 ${isLightMode ? 'light-theme' : ''}`}>
       <div className="cursor" />
       <div className="cursor-dot" />
 
@@ -433,8 +453,13 @@ export default function DestinyV4Page() {
           <span className="bar" />
           <span className="lbl">Membership</span>
         </a>
-        <a href="#contact" data-anchor="contact">
+        <a href="#gift" data-anchor="gift">
           <span className="num">IV</span>
+          <span className="bar" />
+          <span className="lbl">Gift</span>
+        </a>
+        <a href="#contact" data-anchor="contact">
+          <span className="num">V</span>
           <span className="bar" />
           <span className="lbl">Reserve</span>
         </a>
@@ -458,6 +483,14 @@ export default function DestinyV4Page() {
             <a href="#contact">Reserve</a>
           </li>
         </ul>
+        <button
+          className="theme-toggle"
+          type="button"
+          onClick={() => setIsLightMode(!isLightMode)}
+          aria-label="Toggle light/dark theme"
+        >
+          {isLightMode ? '☾' : '☼'}
+        </button>
         <button
           className="nav-hamburger"
           aria-label="Open navigation"
@@ -505,7 +538,7 @@ export default function DestinyV4Page() {
 
       <header className="hero" id="hero">
         <div className="hero-bg">
-          <div className="photo" />
+          <div className="photo" role="img" aria-label="Quiet sanctuary candlelit spa background" />
         </div>
         <div className="hero-meta left">
           <span>Est. Visakhapatnam</span>
@@ -568,7 +601,7 @@ export default function DestinyV4Page() {
       </div>
 
       <section className="editorial var-pause reveal">
-        <div className="photo parallax-img" data-speed="1.8" />
+        <div className="photo parallax-img" data-speed="1.8" role="img" aria-label="Relaxing aromatic steam therapy scene" />
         <div className="veil parallax-veil" data-speed="-0.8" />
         <div className="editorial-content">
           <div className="num">— Pause —</div>
@@ -606,7 +639,7 @@ export default function DestinyV4Page() {
       </section>
 
       <section className="editorial reveal">
-        <div className="photo parallax-img" data-speed="1.6" />
+        <div className="photo parallax-img" data-speed="1.6" role="img" aria-label="Luxury thermal massage stone setup" />
         <div className="veil parallax-veil" data-speed="-0.6" />
         <div className="editorial-content">
           <div className="num">— Interlude —</div>
@@ -645,7 +678,7 @@ export default function DestinyV4Page() {
 
       <section className="intro reveal">
         <div className="intro-bg">
-          <div className="photo parallax-img" data-speed="0.4" />
+          <div className="photo parallax-img" data-speed="0.4" role="img" aria-label="Therapeutic warm oil pouring treatment" />
         </div>
         <span className="intro-mark">&ldquo;</span>
         <p className="intro-quote">
@@ -673,7 +706,7 @@ export default function DestinyV4Page() {
             <span className="line" />
           </div>
           <div className="eyebrow-row">
-            <span className="eyebrow">Heard from guests</span>
+            <h2 className="eyebrow">Heard from guests</h2>
           </div>
         </div>
         <div className="testimonials-grid">
@@ -793,7 +826,7 @@ export default function DestinyV4Page() {
       </section>
 
       <section className="callout reveal">
-        <div className="photo parallax-img" data-speed="1.8" />
+        <div className="photo parallax-img" data-speed="1.8" role="img" aria-label="Tranquil wellness relaxation room" />
         <div className="veil parallax-veil" data-speed="-0.7" />
         <div className="callout-content">
           <div className="eyebrow-mini">— By appointment —</div>
