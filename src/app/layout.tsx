@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Cormorant_Garamond, DM_Sans, Cinzel } from 'next/font/google';
 import './globals.css';
+import LenisProvider from '@/components/providers/LenisProvider';
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -46,7 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${cormorant.variable} ${dmSans.variable} ${cinzel.variable}`}
     >
       <body className="bg-obsidian text-parchment antialiased">
-        {children}
+        <LenisProvider>{children}</LenisProvider>
       </body>
     </html>
   );
