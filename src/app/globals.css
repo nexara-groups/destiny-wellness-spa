@@ -145,18 +145,19 @@ html.lenis {
 
 /* Destiny Wellness Spa v4 port */
 .spa-v4 {
-  --obsidian: #0a0807;
+  --obsidian: #090806;
   --obsidian-2: #100c0a;
   --card: #1a1614;
   --card-2: #1f1a17;
-  --gold: #c9a96e;
+  --gold: #D4AF55;
   --gold-soft: #a88a52;
-  --gold-bright: #e8cf9a;
+  --gold-bright: #F0C84A;
+  --gold-deep: #A8831C;
   --ivory: #ece4d3;
   --ivory-dim: #bdb2a0;
   --muted: #7a7367;
-  --line: rgba(201, 169, 110, 0.18);
-  --line-strong: rgba(201, 169, 110, 0.45);
+  --line: rgba(212, 175, 85, 0.2);
+  --line-strong: rgba(212, 175, 85, 0.48);
   --easing: cubic-bezier(.7, 0, .2, 1);
   min-height: 100vh;
   background: var(--obsidian);
@@ -190,7 +191,7 @@ html.lenis {
   inset: 0;
   z-index: 50;
   pointer-events: none;
-  opacity: 0.045;
+  opacity: 0.062;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.9  0 0 0 0 0.8  0 0 0 0 0.6  0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
@@ -350,7 +351,7 @@ html.lenis {
   inset: 0;
   z-index: 1;
   background:
-    radial-gradient(900px 700px at 50% 35%, rgba(201, 169, 110, 0.14), transparent 60%),
+    radial-gradient(900px 700px at 50% 35%, rgba(212, 175, 85, 0.24), transparent 60%),
     radial-gradient(1200px 800px at 50% 100%, rgba(10, 8, 7, 0.85), transparent 70%),
     linear-gradient(180deg, rgba(10, 8, 7, 0.25) 0%, rgba(10, 8, 7, 0.5) 60%, rgba(10, 8, 7, 0.92) 100%);
 }
@@ -364,7 +365,7 @@ html.lenis {
   top: 35%;
   z-index: 2;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(232, 207, 154, 0.22), rgba(201, 169, 110, 0) 65%);
+  background: radial-gradient(circle, rgba(240, 200, 100, 0.45), rgba(212, 175, 85, 0) 65%);
   filter: blur(40px);
   animation: spaBreathe 9s ease-in-out infinite alternate;
 }
@@ -626,6 +627,11 @@ html.lenis {
   to   { opacity: 1; }
 }
 
+@keyframes goldShimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
 @keyframes mobileDrawerIn {
   from { clip-path: inset(0 0 100% 0); opacity: 0; }
   to   { clip-path: inset(0 0 0% 0);   opacity: 1; }
@@ -709,9 +715,23 @@ html.lenis {
 .spa-v4 .editorial em,
 .spa-v4 .callout h2 em,
 .spa-v4 .footer h3 em {
-  color: var(--gold);
+  background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright), var(--gold), var(--gold-bright), var(--gold-deep));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-style: italic;
   font-weight: 400;
+  animation: goldShimmer 7s linear infinite;
+}
+
+.spa-v4 .intro-quote .accent {
+  background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright), var(--gold), var(--gold-bright), var(--gold-deep));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldShimmer 7s linear infinite;
 }
 
 .spa-v4 .h-line {
@@ -864,8 +884,8 @@ html.lenis {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transform: translateY(0);
-  opacity: 1;
+  transform: translateY(32px);
+  opacity: 0;
   transition: transform 1.4s var(--easing), opacity 1.2s ease, border-color .6s ease, box-shadow .6s ease;
 }
 
@@ -2220,9 +2240,9 @@ html.lenis {
 }
 
 .spa-v4 .reveal {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 1.2s ease, transform 1.2s var(--easing);
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 1.1s ease, transform 1.1s var(--easing);
 }
 
 .spa-v4 .reveal.in {
