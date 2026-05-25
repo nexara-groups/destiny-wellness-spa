@@ -75,7 +75,7 @@ export default function PhilosophySection() {
         }
       `}</style>
 
-      <div className="max-w-4xl mx-auto flex gap-12">
+      <div className="max-w-4xl mx-auto flex gap-6 md:gap-12">
         {/* Vertical gold line with dot */}
         <div className="flex flex-col items-center pt-2 flex-shrink-0">
           <div

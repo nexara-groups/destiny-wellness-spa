@@ -47,7 +47,7 @@ export default function MembershipCard({ membership }: MembershipCardProps) {
 
   return (
     <article
-      className="relative rounded-sm p-10"
+      className="relative rounded-sm p-6 md:p-10"
       style={{ maxWidth: 560, margin: '0 auto', width: '100%', ...cardStyle }}
     >
       {/* Gradient border for platinum */}
