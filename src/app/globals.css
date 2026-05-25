@@ -68,28 +68,72 @@ html.lenis {
   z-index: 1;
 }
 
-/* Hero atmospheric background */
+/* Hero atmospheric background — deep spa room lit from lower-left */
 .hero-atmosphere {
   background:
-    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(139,105,20,0.18) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 80% at 80% 30%, rgba(201,168,76,0.08) 0%, transparent 55%),
-    radial-gradient(ellipse 100% 100% at 50% 100%, rgba(45,30,10,0.6) 0%, transparent 70%),
-    linear-gradient(160deg, #0a0803 0%, #080808 40%, #0d0a04 100%);
+    radial-gradient(ellipse 120% 50% at 50% 92%, rgba(139,105,20,0.1) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 70% at 16% 58%, rgba(180,130,30,0.2) 0%, transparent 55%),
+    radial-gradient(ellipse 35% 55% at 84% 22%, rgba(201,168,76,0.07) 0%, transparent 50%),
+    radial-gradient(ellipse 70% 45% at 50% 50%, rgba(18,12,3,0.4) 0%, transparent 70%),
+    linear-gradient(170deg, #090806 0%, #080808 30%, #0d0b05 65%, #0a0804 100%);
 }
 
-/* Ritual image placeholders */
+/* Ritual scene placeholders — each a distinct cinematic mood */
 .ritual-placeholder-1 {
   background:
-    radial-gradient(ellipse 70% 80% at 30% 70%, rgba(201,168,76,0.12) 0%, transparent 60%),
-    linear-gradient(145deg, #0f0d08 0%, #1a1208 50%, #0a0803 100%);
+    radial-gradient(ellipse 60% 80% at 35% 65%, rgba(201,168,76,0.15) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 78% 18%, rgba(100,75,20,0.08) 0%, transparent 45%),
+    linear-gradient(150deg, #0f0d08 0%, #1c1409 55%, #0a0803 100%);
 }
 .ritual-placeholder-2 {
   background:
-    radial-gradient(ellipse 60% 90% at 70% 30%, rgba(139,105,20,0.15) 0%, transparent 55%),
-    linear-gradient(200deg, #141008 0%, #0d0a04 60%, #080808 100%);
+    radial-gradient(ellipse 55% 85% at 65% 35%, rgba(180,130,30,0.17) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 50% at 18% 82%, rgba(140,100,25,0.1) 0%, transparent 45%),
+    linear-gradient(200deg, #141008 0%, #0e0b04 55%, #080808 100%);
 }
 .ritual-placeholder-3 {
   background:
-    radial-gradient(ellipse 80% 60% at 50% 80%, rgba(201,168,76,0.1) 0%, transparent 65%),
-    linear-gradient(120deg, #080808 0%, #131008 50%, #1a1208 100%);
+    radial-gradient(ellipse 75% 55% at 50% 78%, rgba(201,168,76,0.13) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 22% 28%, rgba(139,105,20,0.1) 0%, transparent 45%),
+    linear-gradient(125deg, #080808 0%, #131008 50%, #1c1409 100%);
+}
+
+/* Service card gradients — distinct atmospheric mood per treatment */
+.sg-balinese {
+  background:
+    radial-gradient(ellipse 65% 75% at 28% 70%, rgba(160,110,30,0.24) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 50% at 82% 18%, rgba(100,75,20,0.1) 0%, transparent 45%),
+    linear-gradient(155deg, #0f0c08 0%, #1c1409 55%, #0d0a03 100%);
+}
+.sg-aromatherapy {
+  background:
+    radial-gradient(ellipse 70% 65% at 62% 42%, rgba(150,115,55,0.2) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 55% at 14% 78%, rgba(110,85,35,0.12) 0%, transparent 45%),
+    linear-gradient(130deg, #0d0b07 0%, #171109 60%, #0f0d08 100%);
+}
+.sg-signature {
+  background:
+    radial-gradient(ellipse 55% 70% at 50% 45%, rgba(201,168,76,0.22) 0%, transparent 55%),
+    radial-gradient(ellipse 30% 40% at 18% 82%, rgba(139,105,20,0.1) 0%, transparent 45%),
+    linear-gradient(175deg, #0a0803 0%, #1e1609 55%, #080808 100%);
+}
+.sg-hot-candle {
+  background:
+    radial-gradient(ellipse 50% 65% at 45% 78%, rgba(220,145,25,0.3) 0%, transparent 55%),
+    radial-gradient(ellipse 35% 45% at 68% 88%, rgba(200,120,20,0.16) 0%, transparent 45%),
+    radial-gradient(ellipse 65% 40% at 50% 100%, rgba(160,80,10,0.22) 0%, transparent 50%),
+    linear-gradient(175deg, #0c0904 0%, #221508 55%, #0a0803 100%);
+}
+.sg-body-scrubs {
+  background:
+    radial-gradient(ellipse 75% 60% at 42% 48%, rgba(185,148,58,0.2) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 65% at 82% 78%, rgba(140,105,40,0.12) 0%, transparent 45%),
+    linear-gradient(120deg, #0e0c07 0%, #1a1409 55%, #0c0b06 100%);
+}
+.sg-couple {
+  background:
+    radial-gradient(ellipse 45% 65% at 20% 55%, rgba(201,168,76,0.17) 0%, transparent 50%),
+    radial-gradient(ellipse 45% 65% at 80% 55%, rgba(201,168,76,0.17) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 40% at 50% 100%, rgba(139,105,20,0.15) 0%, transparent 55%),
+    linear-gradient(175deg, #0a0803 0%, #181208 55%, #080808 100%);
 }

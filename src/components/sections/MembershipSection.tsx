@@ -8,6 +8,7 @@ import MembershipCard from '@/components/ui/MembershipCard';
 export default function MembershipSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const stickyRef = useRef<HTMLDivElement>(null);
+  const activeIndexRef = useRef(-1);
   const reducedMotion = useReducedMotion();
 
   useEffect(() => {
@@ -41,6 +42,10 @@ export default function MembershipSection() {
         onUpdate: (self) => {
           const progress = self.progress;
           const activeIndex = Math.min(Math.floor(progress * totalCards), totalCards - 1);
+
+          // Only animate when active card changes — prevents per-tick jitter
+          if (activeIndex === activeIndexRef.current) return;
+          activeIndexRef.current = activeIndex;
 
           cards.forEach((card, i) => {
             if (i < activeIndex) {

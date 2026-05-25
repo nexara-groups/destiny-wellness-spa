@@ -44,8 +44,17 @@ export default function SocialProofSection() {
   }, [reducedMotion]);
 
   return (
-    <section ref={sectionRef} className="py-24 px-6 bg-charcoal">
-      <div className="max-w-5xl mx-auto">
+    <section ref={sectionRef} className="relative py-24 px-6 bg-charcoal overflow-hidden">
+      {/* Large decorative opening quotation mark */}
+      <div
+        className="absolute top-6 left-1/2 -translate-x-1/2 font-cormorant text-gold/[0.04] pointer-events-none select-none leading-none"
+        style={{ fontSize: 'clamp(160px, 20vw, 240px)' }}
+        aria-hidden="true"
+      >
+        &ldquo;
+      </div>
+
+      <div className="relative max-w-5xl mx-auto">
         <p className="font-cinzel text-[10px] tracking-[0.3em] text-gold uppercase mb-4 text-center">
           Experiences
         </p>
@@ -60,21 +69,24 @@ export default function SocialProofSection() {
           {REVIEWS.map((review) => (
             <div
               key={review.name}
-              className="review-card opacity-0 bg-obsidian border border-smoke rounded-[2px] p-7"
+              className={`review-card ${reducedMotion ? '' : 'opacity-0'} bg-obsidian border border-smoke rounded-[2px] p-7 flex flex-col`}
             >
-              <div className="flex gap-1 mb-4" aria-label={`${review.rating} out of 5 stars`}>
+              <div className="flex gap-1 mb-5" aria-label={`${review.rating} out of 5 stars`}>
                 {Array.from({ length: review.rating }).map((_, i) => (
-                  <span key={i} className="text-gold text-[12px]">★</span>
+                  <span key={i} className="text-gold text-[13px]">★</span>
                 ))}
               </div>
 
-              <p className="font-sans font-light text-ash text-[13px] leading-relaxed mb-6 italic">
+              <p className="font-cormorant font-light text-parchment/80 text-[16px] leading-relaxed mb-6 italic flex-1">
                 &ldquo;{review.text}&rdquo;
               </p>
 
-              <p className="font-cinzel text-[10px] tracking-[0.2em] text-brass uppercase">
-                — {review.name}
-              </p>
+              <div className="flex items-center gap-3">
+                <div className="h-[1px] w-5 bg-gold/30" />
+                <p className="font-cinzel text-[10px] tracking-[0.2em] text-brass uppercase">
+                  {review.name}
+                </p>
+              </div>
             </div>
           ))}
         </div>

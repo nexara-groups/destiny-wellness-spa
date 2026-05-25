@@ -26,15 +26,32 @@ export default function GiftSection() {
   }, [reducedMotion]);
 
   return (
-    <section id="gift" ref={sectionRef} className="py-24 px-6 bg-obsidian border-t border-smoke">
-      <div className="gift-content opacity-0 max-w-2xl mx-auto text-center">
-        <p className="font-cinzel text-[10px] tracking-[0.3em] text-brass uppercase mb-6">
-          Gift a Session
-        </p>
+    <section id="gift" ref={sectionRef} className="relative py-24 px-6 overflow-hidden"
+      style={{ background: 'linear-gradient(180deg, #0d0a04 0%, #080808 100%)' }}
+    >
+      {/* Ambient center glow */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+        style={{
+          width: 600,
+          height: 400,
+          borderRadius: '50%',
+          background: 'radial-gradient(ellipse, rgba(201,168,76,0.06) 0%, transparent 70%)',
+        }}
+        aria-hidden="true"
+      />
+
+      <div className={`gift-content ${reducedMotion ? '' : 'opacity-0'} relative max-w-xl mx-auto text-center`}>
+        {/* Decorative top rule */}
+        <div className="flex items-center justify-center gap-4 mb-8">
+          <div className="h-[1px] w-12" style={{ background: 'linear-gradient(to left, rgba(201,168,76,0.4), transparent)' }} />
+          <span className="font-cinzel text-[10px] tracking-[0.35em] text-gold uppercase">Gift a Session</span>
+          <div className="h-[1px] w-12" style={{ background: 'linear-gradient(to right, rgba(201,168,76,0.4), transparent)' }} />
+        </div>
 
         <h2
-          className="font-cormorant font-light text-parchment mb-4"
-          style={{ fontSize: 'clamp(28px, 4vw, 48px)' }}
+          className="font-cormorant font-light text-parchment mb-5"
+          style={{ fontSize: 'clamp(28px, 4vw, 52px)', lineHeight: 1.1 }}
         >
           Give the gift of stillness.
         </h2>
@@ -53,6 +70,13 @@ export default function GiftSection() {
         >
           Inquire on WhatsApp
         </a>
+
+        {/* Decorative bottom rule */}
+        <div className="flex items-center justify-center gap-4 mt-12">
+          <div className="h-[1px] w-8" style={{ background: 'linear-gradient(to left, rgba(201,168,76,0.2), transparent)' }} />
+          <div className="w-1 h-1 rounded-full bg-gold/30" />
+          <div className="h-[1px] w-8" style={{ background: 'linear-gradient(to right, rgba(201,168,76,0.2), transparent)' }} />
+        </div>
       </div>
     </section>
   );

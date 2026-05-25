@@ -19,9 +19,9 @@ const TIER_STYLES: Record<
     labelColor: '#C9A84C',
   },
   diamond: {
-    bg: '#0F0F1A',
-    border: '1px solid #4A5FB0',
-    labelColor: '#A8B8E8',
+    bg: '#0E0E10',
+    border: '1px solid rgba(240,234,214,0.28)',
+    labelColor: '#E8D5A3',
   },
   platinum: {
     bg: '#0A0A0A',

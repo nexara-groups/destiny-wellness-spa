@@ -3,6 +3,7 @@ import { WHATSAPP_BOOKING } from '@/constants/site';
 
 interface ServiceCardProps {
   service: Service;
+  gradientClass?: string;
   imageSlot?: React.ReactNode;
 }
 
@@ -12,24 +13,23 @@ const TIER_LABELS: Record<Service['tier'], string> = {
   premium: 'Premium',
 };
 
-export default function ServiceCard({ service, imageSlot }: ServiceCardProps) {
+export default function ServiceCard({ service, gradientClass, imageSlot }: ServiceCardProps) {
   const minPrice = Math.min(...service.durations.map((d) => d.price));
   const durations = service.durations.map((d) => `${d.mins}`).join(' · ');
 
   return (
-    <article className="group relative bg-charcoal border border-smoke rounded-sm overflow-hidden transition-all duration-[400ms] ease-in-out hover:-translate-y-2 hover:border-gold hover:shadow-[0_20px_60px_rgba(201,168,76,0.12)]">
-      {/* Image area */}
+    <article className="group relative bg-charcoal border border-smoke rounded-sm overflow-hidden transition-all duration-[400ms] ease-in-out hover:-translate-y-2 hover:border-gold/60 hover:shadow-[0_20px_60px_rgba(201,168,76,0.12)]">
+      {/* Image / atmosphere area */}
       <div className="relative h-48 overflow-hidden">
         {imageSlot ?? (
           <div
-            className="w-full h-full grain"
-            style={{
-              background: 'radial-gradient(ellipse 80% 80% at 30% 60%, rgba(139,105,20,0.2) 0%, transparent 60%), linear-gradient(145deg, #0f0d08 0%, #1a1208 60%, #0d0a04 100%)',
-            }}
+            className={`w-full h-full grain ${gradientClass ?? 'sg-signature'}`}
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-charcoal" />
-        <span className="absolute top-3 left-3 font-cinzel text-[8px] tracking-[0.2em] text-gold uppercase bg-obsidian/70 border border-gold/30 px-2 py-1">
+
+        {/* Tier badge */}
+        <span className="absolute top-3 left-3 font-cinzel text-[10px] tracking-[0.18em] text-gold uppercase bg-obsidian/80 border border-gold/25 px-2 py-[3px]">
           {service.badge ?? TIER_LABELS[service.tier]}
         </span>
       </div>
@@ -39,10 +39,10 @@ export default function ServiceCard({ service, imageSlot }: ServiceCardProps) {
         <h3 className="font-cormorant font-semibold text-parchment text-xl mb-1 leading-tight">
           {service.name}
         </h3>
-        <p className="font-cinzel text-[9px] tracking-[0.2em] text-ash uppercase mb-3">
-          {durations} mins
+        <p className="font-cinzel text-[10px] tracking-[0.2em] text-ash uppercase mb-3">
+          {durations} min
         </p>
-        <p className="text-ash text-[13px] leading-relaxed mb-4 line-clamp-3">
+        <p className="text-ash text-[13px] leading-relaxed mb-5 line-clamp-3">
           {service.description}
         </p>
 
@@ -54,7 +54,7 @@ export default function ServiceCard({ service, imageSlot }: ServiceCardProps) {
             href={WHATSAPP_BOOKING}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-cinzel text-[9px] tracking-[0.15em] text-brass uppercase hover:text-gold transition-colors duration-200"
+            className="font-cinzel text-[10px] tracking-[0.18em] text-gold uppercase border-b border-gold/30 pb-px hover:text-champagne hover:border-champagne/50 transition-colors duration-200"
             aria-label={`Book ${service.name}`}
           >
             Book →
@@ -62,7 +62,7 @@ export default function ServiceCard({ service, imageSlot }: ServiceCardProps) {
         </div>
 
         {service.id !== 'couple' && (
-          <p className="text-[11px] text-ash/60 mt-3">
+          <p className="font-sans text-[11px] text-ash/50 mt-3 border-t border-smoke/50 pt-3">
             + ₹500 steam bath add-on available
           </p>
         )}

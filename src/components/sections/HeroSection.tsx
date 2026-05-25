@@ -92,7 +92,7 @@ export default function HeroSection() {
 
       {/* Content */}
       <div ref={contentRef} className="relative z-10 text-center px-6 max-w-3xl mx-auto">
-        <p className="hero-eyebrow font-cinzel text-[10px] tracking-[0.4em] text-brass uppercase mb-8 opacity-0">
+        <p className="hero-eyebrow font-cinzel text-[10px] tracking-[0.4em] text-gold uppercase mb-8 opacity-0">
           {SITE.name} · Est. Visakhapatnam
         </p>
 
@@ -126,6 +126,12 @@ export default function HeroSection() {
         >
           Book a Session
         </a>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2" aria-hidden="true">
+        <span className="font-cinzel text-[8px] tracking-[0.35em] text-brass uppercase">Scroll</span>
+        <div className="w-[1px] h-8 bg-gradient-to-b from-brass/60 to-transparent" />
       </div>
     </section>
   );

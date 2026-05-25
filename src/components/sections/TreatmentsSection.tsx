@@ -10,6 +10,15 @@ const TIER_GROUPS = [
   { id: 'premium' as const, eyebrow: 'Premium Rituals', heading: 'The Extraordinary', bg: '#111111' },
 ];
 
+const SERVICE_GRADIENTS: Record<string, string> = {
+  balinese: 'sg-balinese',
+  aromatherapy: 'sg-aromatherapy',
+  signature: 'sg-signature',
+  'hot-candle': 'sg-hot-candle',
+  'body-scrubs': 'sg-body-scrubs',
+  couple: 'sg-couple',
+};
+
 export default function TreatmentsSection() {
   const reducedMotion = useReducedMotion();
 
@@ -57,18 +66,19 @@ export default function TreatmentsSection() {
 
   return (
     <section id="treatments" ref={sectionRef} className="overflow-hidden">
-      {TIER_GROUPS.map((group) => {
+      {TIER_GROUPS.map((group, groupIndex) => {
         const services = SERVICES.filter((s) => s.tier === group.id);
         const isSignature = group.id === 'signature';
+        const isLast = groupIndex === TIER_GROUPS.length - 1;
 
         return (
           <div
             key={group.id}
             data-tier={group.id}
-            className="relative py-24 px-6"
+            className="relative py-20 px-6"
             style={{ background: group.bg }}
           >
-            {/* Flame glow for premium */}
+            {/* Premium tier: candle glow at base */}
             {group.id === 'premium' && (
               <div
                 className="absolute bottom-0 left-0 right-0 h-48 pointer-events-none"
@@ -119,23 +129,35 @@ export default function TreatmentsSection() {
               >
                 {services.map((service) => (
                   <div key={service.id} className="service-card-wrapper">
-                    <ServiceCard service={service} />
+                    <ServiceCard
+                      service={service}
+                      gradientClass={SERVICE_GRADIENTS[service.id]}
+                    />
                   </div>
                 ))}
 
-                {/* Steam bath add-on (premium tier only) */}
+                {/* Steam bath add-on — premium tier */}
                 {group.id === 'premium' && (
                   <div className="service-card-wrapper">
-                    <div className="h-full bg-charcoal border border-dashed border-gold/30 rounded-sm p-6 flex flex-col items-center justify-center text-center min-h-[200px]">
-                      <p className="font-cinzel text-[9px] tracking-[0.2em] text-brass uppercase mb-3">Add-on</p>
+                    <div className="h-full bg-charcoal border border-dashed border-gold/25 rounded-sm p-6 flex flex-col items-center justify-center text-center min-h-[200px]">
+                      <p className="font-cinzel text-[9px] tracking-[0.25em] text-brass uppercase mb-3">Add-on</p>
                       <h3 className="font-cormorant font-light text-parchment text-xl mb-2">Steam Bath</h3>
                       <p className="font-cinzel text-gold text-lg">+ ₹500</p>
-                      <p className="text-ash text-[12px] mt-3">Available with any treatment</p>
+                      <p className="font-sans text-[12px] text-ash mt-3">Available with any treatment</p>
                     </div>
                   </div>
                 )}
               </div>
             </div>
+
+            {/* Tier separator — gold rule at bottom of each non-last tier */}
+            {!isLast && (
+              <div
+                className="absolute bottom-0 left-0 right-0 h-[1px] pointer-events-none"
+                style={{ background: 'linear-gradient(to right, transparent, rgba(201,168,76,0.12), transparent)' }}
+                aria-hidden="true"
+              />
+            )}
           </div>
         );
       })}
