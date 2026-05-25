@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Cormorant_Garamond, DM_Sans, Cinzel } from 'next/font/google';
 import './globals.css';
 import LenisProvider from '@/components/providers/LenisProvider';
@@ -17,7 +17,7 @@ const dmSans = DM_Sans({
   weight: ['300', '400', '500'],
   variable: '--font-dm-sans',
   display: 'swap',
-  preload: false,
+  preload: true,
 });
 
 const cinzel = Cinzel({
@@ -27,6 +27,11 @@ const cinzel = Cinzel({
   display: 'swap',
   preload: false,
 });
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   title: 'Destiny Wellness & Spa — Visakhapatnam',
