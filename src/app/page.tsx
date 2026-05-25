@@ -4,6 +4,7 @@ import HeroSection from '@/components/sections/HeroSection';
 import PhilosophySection from '@/components/sections/PhilosophySection';
 import TreatmentsSection from '@/components/sections/TreatmentsSection';
 import RitualSection from '@/components/sections/RitualSection';
+import MembershipSection from '@/components/sections/MembershipSection';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <PhilosophySection />
       <TreatmentsSection />
       <RitualSection />
+      <MembershipSection />
     </main>
   );
 }
