@@ -94,7 +94,7 @@ Premium. Understated. No discounting language. No filler. Every word earns its p
 - **Tier groupings:**
   - Normal: Balinese Massage (₹3,000–5,500) + Aromatherapy (₹2,500–4,500). Background `#111111` + faint marble SVG at 6%.
   - Signature: Signature Massage (₹3,500–6,500). Background `#0D0A04`. Single wide card (520px), left gold accent stripe, "SIGNATURE" vertical watermark at 8%.
-  - Premium: Hot Candle Massage + Body Scrubs (₹3,500–6,500 each). Background back to `#111111`, flame glow at base. Cards enter from opposite sides simultaneously.
+  - Premium: Hot Candle Massage + Body Scrubs + **Couple Session** (₹3,500–6,500 base). Background back to `#111111`, flame glow at base. Cards enter from opposite sides simultaneously. Couple Session card gets a special "For Two" badge.
 - **Steam bath add-on:** ₹500, shown as dashed-border card alongside Premium tier.
 - **Card spec:** 340px wide, 2px radius, 1px border (default `#1F1F1F`, hover `--gold`). Image top 200px with gradient overlay. Hover: `translateY(-8px)` + `box-shadow: 0 20px 60px rgba(201,168,76,0.12)`. Transition: `0.4s cubic-bezier(0.16,1,0.3,1)`.
 - **Animation:** Cards stagger in from right with `rotate(2deg → 0deg)`. Background tone deepens per tier.
@@ -294,11 +294,11 @@ npx sharp-cli --input "*.jpg" --output public/images/optimized --format webp --q
 - [ ] Working hours (days + first/last slot time)
 - [ ] Therapist credentials (training origin, count, years experience)
 - [ ] Privacy & gender policy (private rooms, mixed-gender policy)
-- [ ] Couple sessions — available? pricing?
-- [ ] Gift voucher mechanism — available? how to purchase?
+- [x] Couple sessions — available. Pricing TBD (add to Section 03 as premium card alongside Hot Candle/Body Scrubs)
+- [x] Gift vouchers — available. WhatsApp inquiry path. Featured in Section 07.
 - [ ] Google Maps landmark note ("near Rushikonda junction, above [bank]")
 - [ ] 3–5 real Google review quotes (name + text + star rating)
-- [ ] Confirm WhatsApp number is active: 7673 996 993
+- [x] WhatsApp number confirmed active: 7673 996 993
 - [ ] High-resolution imagery for The Ritual section (ambient spa photos)
 
 ---
