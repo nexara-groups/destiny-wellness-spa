@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Destiny Wellness & Spa — Full Design Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --obsidian: #080808;
+    --charcoal: #111111;
+    --smoke: #1A1A1A;
+    --gold: #C9A84C;
+    --brass: #8B6914;
+    --champagne: #E8D5A3;
+    --parchment: #F0EAD6;
+    --ash: #8A8A8A;
+    --crimson: #6B1A2A;
+  }
+
+  body {
+    background: #0C0C0C;
+    color: var(--parchment);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* ─── HEADER ─── */
+  .page-header {
+    background: linear-gradient(135deg, #0a0a0a 0%, #111108 100%);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    padding: 32px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .page-header-brand {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .page-header-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    color: var(--ash);
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── SECTION WRAPPER ─── */
+  .proposal-section {
+    padding: 64px 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .section-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--parchment);
+    margin-bottom: 8px;
+    line-height: 1.15;
+  }
+  .section-subtitle {
+    font-size: 14px;
+    color: var(--ash);
+    margin-bottom: 40px;
+    max-width: 560px;
+  }
+
+  /* ─── COLOR PALETTE ─── */
+  .palette-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .swatch {
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .swatch-color { height: 64px; }
+  .swatch-info { padding: 10px 12px; background: #111; }
+  .swatch-name { font-size: 12px; color: var(--parchment); margin-bottom: 2px; font-weight: 400; }
+  .swatch-hex { font-family: monospace; font-size: 11px; color: var(--ash); }
+  .swatch-role { font-size: 10px; color: var(--ash); margin-top: 2px; opacity: 0.7; }
+
+  /* ─── TYPOGRAPHY ─── */
+  .type-showcase { display: flex; flex-direction: column; gap: 32px; }
+  .type-sample { border-left: 2px solid var(--brass); padding-left: 20px; }
+  .type-label { font-size: 10px; letter-spacing: 0.2em; color: var(--ash); text-transform: uppercase; margin-bottom: 8px; }
+  .font-heading { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 300; color: var(--parchment); line-height: 1.1; }
+  .font-subheading { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 400; color: var(--champagne); line-height: 1.2; }
+  .font-cinzel { font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; }
+  .font-body { font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 300; color: var(--parchment); max-width: 540px; line-height: 1.7; }
+  .font-price { font-family: 'Cinzel', serif; font-size: 22px; color: var(--gold); }
+
+  /* ─── PAGE ARCHITECTURE ─── */
+  .arch-flow { display: flex; flex-direction: column; gap: 0; }
+  .arch-section {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-bottom: none;
+    overflow: hidden;
+  }
+  .arch-section:last-child { border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .arch-num {
+    width: 56px;
+    flex-shrink: 0;
+    background: #0D0D0D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    color: var(--brass);
+    border-right: 1px solid rgba(255,255,255,0.07);
+  }
+  .arch-content { flex: 1; padding: 20px 24px; }
+  .arch-section-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--parchment); margin-bottom: 4px; }
+  .arch-desc { font-size: 13px; color: var(--ash); margin-bottom: 8px; }
+  .arch-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .arch-tag {
+    font-size: 10px; letter-spacing: 0.1em; padding: 3px 8px;
+    border-radius: 2px; text-transform: uppercase;
+    font-family: 'DM Sans', sans-serif; font-weight: 500;
+  }
+  .tag-animation { background: rgba(201,168,76,0.12); color: var(--gold); border: 1px solid rgba(201,168,76,0.2); }
+  .tag-pinned { background: rgba(107,26,42,0.2); color: #E87878; border: 1px solid rgba(107,26,42,0.3); }
+  .tag-cta { background: rgba(100,180,100,0.12); color: #78C878; border: 1px solid rgba(100,180,100,0.2); }
+  .tag-trust { background: rgba(100,140,200,0.12); color: #88B4E8; border: 1px solid rgba(100,140,200,0.2); }
+  .arch-visual {
+    width: 200px;
+    flex-shrink: 0;
+    border-left: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+  }
+
+  /* ─── HERO MOCKUP ─── */
+  .hero-mock {
+    width: 100%;
+    height: 320px;
+    background: linear-gradient(160deg, #080808 0%, #1a1208 40%, #0d0a04 100%);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(201,168,76,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .hero-mock::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 60%, rgba(201,168,76,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 30%, rgba(201,168,76,0.05) 0%, transparent 50%);
+  }
+  .hero-mock-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.4em;
+    color: var(--brass);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    z-index: 1;
+  }
+  .hero-mock-h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    color: var(--parchment);
+    text-align: center;
+    line-height: 1.1;
+    z-index: 1;
+    max-width: 480px;
+  }
+  .hero-mock-rule {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 16px auto;
+    z-index: 1;
+    opacity: 0.6;
+  }
+  .hero-mock-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    color: var(--ash);
+    text-align: center;
+    letter-spacing: 0.05em;
+    z-index: 1;
+    max-width: 320px;
+  }
+  .hero-mock-cta {
+    margin-top: 24px;
+    z-index: 1;
+    padding: 10px 28px;
+    background: var(--gold);
+    color: #080808;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+  }
+  .hero-mock-nav {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .hero-mock-nav-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--champagne);
+  }
+  .hero-mock-nav-links {
+    display: flex;
+    gap: 20px;
+    font-size: 10px;
+    color: rgba(240,234,214,0.6);
+    letter-spacing: 0.1em;
+  }
+  .hero-mock-nav-book {
+    font-size: 9px;
+    padding: 6px 14px;
+    background: var(--gold);
+    color: #080808;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    border-radius: 2px;
+  }
+  .hero-watermark {
+    position: absolute;
+    font-family: 'Cinzel', serif;
+    font-size: 180px;
+    color: rgba(201,168,76,0.04);
+    font-weight: 600;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 0;
+    line-height: 1;
+  }
+
+  /* ─── SERVICE CARDS ─── */
+  .service-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .service-card {
+    background: var(--charcoal);
+    border: 1px solid #1F1F1F;
+    border-radius: 2px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  .service-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(201,168,76,0.12);
+  }
+  .service-card-img {
+    height: 140px;
+    background: linear-gradient(135deg, #1a1208 0%, #2d1e0a 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card-img::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60%;
+    background: linear-gradient(to bottom, transparent, var(--charcoal));
+  }
+  .service-tier-badge {
+    position: absolute;
+    top: 10px; left: 10px;
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    background: rgba(8,8,8,0.7);
+    padding: 3px 7px;
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 1px;
+    z-index: 1;
+  }
+  .service-card-body { padding: 16px; }
+  .service-card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--parchment);
+    margin-bottom: 4px;
+    font-weight: 400;
+  }
+  .service-card-duration {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--ash);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .service-card-desc { font-size: 12px; color: var(--ash); line-height: 1.6; margin-bottom: 12px; }
+  .service-card-price { font-family: 'Cinzel', serif; font-size: 15px; color: var(--gold); }
+
+  /* ─── MEMBERSHIP CARDS ─── */
+  .membership-showcase { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .mem-card {
+    border-radius: 2px;
+    padding: 24px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .mem-silver { background: #1A1A1A; border: 1px solid #6B6B6B; }
+  .mem-gold { background: #1A1A1A; border: 1px solid var(--brass); }
+  .mem-diamond { background: #0F0F1A; border: 1px solid #4A5FB0; }
+  .mem-platinum {
+    background: #0A0A0A;
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+  }
+  .mem-platinum::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(135deg, var(--gold), var(--champagne), var(--gold));
+    border-radius: 3px;
+    z-index: -1;
+  }
+  .mem-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .mem-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+  .mem-price { font-family: 'Cinzel', serif; font-size: 20px; color: var(--gold); margin-bottom: 4px; }
+  .mem-sessions { font-size: 11px; color: var(--ash); margin-bottom: 16px; }
+  .mem-benefit { font-size: 11px; color: var(--parchment); margin-bottom: 4px; padding-left: 14px; position: relative; }
+  .mem-benefit::before { content: '✓'; position: absolute; left: 0; color: var(--gold); font-size: 10px; }
+  .mem-badge {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 0.15em;
+    padding: 3px 8px;
+    border-radius: 1px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .badge-popular { background: rgba(201,168,76,0.15); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); }
+  .badge-limited { background: rgba(107,26,42,0.2); color: #E87878; border: 1px solid rgba(107,26,42,0.4); }
+
+  /* ─── CINEMATIC TECHNIQUES ─── */
+  .techniques-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .technique-card {
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 4px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .technique-card::before {
+    content: attr(data-num);
+    position: absolute;
+    top: -10px; right: 16px;
+    font-family: 'Cinzel', serif;
+    font-size: 80px;
+    color: rgba(201,168,76,0.05);
+    font-weight: 600;
+    line-height: 1;
+  }
+  .technique-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--parchment);
+    margin-bottom: 8px;
+  }
+  .technique-desc { font-size: 13px; color: var(--ash); line-height: 1.7; }
+  .technique-tag {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 3px 8px;
+    border-radius: 2px;
+    font-family: 'Cinzel', serif;
+  }
+
+  /* ─── TECH STACK ─── */
+  .tech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .tech-item {
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 4px;
+    padding: 20px;
+  }
+  .tech-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--parchment); margin-bottom: 4px; }
+  .tech-role { font-size: 11px; color: var(--gold); font-family: 'Cinzel', serif; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px; }
+  .tech-note { font-size: 12px; color: var(--ash); line-height: 1.6; }
+
+  /* ─── CTA ROW ─── */
+  .cta-showcase {
+    background: linear-gradient(135deg, #0d0a04 0%, #080808 100%);
+    border-radius: 4px;
+    padding: 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(201,168,76,0.12);
+  }
+  .cta-showcase::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--parchment);
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .cta-sub { font-size: 14px; color: var(--ash); margin-bottom: 32px; position: relative; }
+  .cta-btns { display: flex; gap: 16px; justify-content: center; position: relative; }
+  .btn-primary {
+    padding: 14px 36px;
+    background: var(--gold);
+    color: #080808;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+  .btn-secondary {
+    padding: 14px 36px;
+    background: transparent;
+    color: var(--gold);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border: 1px solid var(--gold);
+    border-radius: 2px;
+    cursor: pointer;
+  }
+
+  /* ─── APPROVAL SECTION ─── */
+  .approval-section {
+    padding: 48px;
+    background: #0C0C0C;
+    text-align: center;
+  }
+  .approval-title { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--parchment); margin-bottom: 12px; }
+  .approval-sub { font-size: 14px; color: var(--ash); margin-bottom: 32px; }
+  .approval-opts { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .approval-opt {
+    padding: 12px 28px;
+    border-radius: 2px;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: #111;
+    color: var(--parchment);
+    transition: all 0.2s;
+  }
+  .approval-opt:hover { border-color: var(--gold); color: var(--gold); }
+  .approval-opt.selected { border-color: var(--gold); background: rgba(201,168,76,0.1); color: var(--gold); }
+
+  /* ─── DIVIDER ─── */
+  .gold-rule { height: 1px; background: linear-gradient(to right, transparent, var(--brass), transparent); margin: 0 48px; opacity: 0.4; }
+
+  /* ─── ALERT BOX ─── */
+  .alert {
+    margin: 0 0 24px;
+    padding: 16px 20px;
+    border-radius: 4px;
+    font-size: 13px;
+    line-height: 1.6;
+    border-left: 3px solid;
+  }
+  .alert-warning { background: rgba(201,168,76,0.08); border-color: var(--gold); color: var(--champagne); }
+  .alert-info { background: rgba(100,140,200,0.08); border-color: #88B4E8; color: #C4D8F8; }
+
+  /* ─── MISSING CONTENT ─── */
+  .missing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .missing-item {
+    background: #111;
+    border: 1px solid rgba(107,26,42,0.4);
+    border-radius: 4px;
+    padding: 16px;
+  }
+  .missing-title { font-size: 13px; color: #E87878; margin-bottom: 4px; font-weight: 500; }
+  .missing-desc { font-size: 12px; color: var(--ash); }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+
+  /* image placeholders in service cards */
+  .svc-img-balinese { background: linear-gradient(135deg, #1a1208, #3d2a10); }
+  .svc-img-aroma { background: linear-gradient(135deg, #0d1a0d, #1a3020); }
+  .svc-img-signature { background: linear-gradient(135deg, #1a1510, #3a2518); }
+  .svc-img-candle { background: linear-gradient(135deg, #1a0d08, #4a1a08); }
+  .svc-img-scrub { background: linear-gradient(135deg, #141414, #2a1a14); }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="page-header">
+  <div>
+    <div class="page-header-brand">Destiny Wellness & Spa</div>
+    <div class="page-header-label" style="margin-top:4px;">Full Design Proposal — Dark Luxury Edition</div>
+  </div>
+  <div class="page-header-label">Medhavi · Designer · Architect · 25 May 2026</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SECTION 1 — HERO MOCKUP -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="proposal-section">
+  <div class="section-eyebrow">Section Preview</div>
+  <div class="section-title">Hero — First Impression</div>
+  <div class="section-subtitle">Full-viewport pinned section. Text floats away on scroll. Gold curtain wipes to Section 2.</div>
+
+  <div class="hero-mock">
+    <div class="hero-watermark">D</div>
+    <div class="hero-mock-nav">
+      <div class="hero-mock-nav-logo">DESTINY</div>
+      <div class="hero-mock-nav-links">
+        <span>Treatments</span><span>Membership</span><span>About</span>
+      </div>
+      <div class="hero-mock-nav-book">Book Now</div>
+    </div>
+    <div class="hero-mock-logo">Destiny Wellness & Spa · Est. Visakhapatnam</div>
+    <div class="hero-mock-h1">Where the City Ends,<br><em>Stillness Begins.</em></div>
+    <div class="hero-mock-rule"></div>
+    <div class="hero-mock-sub">Crafted for those who have everything except rest.</div>
+    <button class="hero-mock-cta">Book a Session</button>
+  </div>
+</div>
+
+<div class="gold-rule"></div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SECTION 2 — PAGE ARCHITECTURE -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="proposal-section">
+  <div class="section-eyebrow">Scroll Architecture</div>
+  <div class="section-title">Page Flow — 8 Sections</div>
+  <div class="section-subtitle">Optimised for conversion. Trust built before price shown. CTAs appear at two scroll depths.</div>
+
+  <div class="arch-flow">
+    <div class="arch-section">
+      <div class="arch-num">01</div>
+      <div class="arch-content">
+        <div class="arch-section-name">Hero — Cinematic Entry</div>
+        <div class="arch-desc">"Where the City Ends, Stillness Begins." Full viewport. Parallax video/image bg. Pinned for 150vh scroll depth.</div>
+        <div class="arch-tags">
+          <span class="arch-tag tag-pinned">Pinned 150vh</span>
+          <span class="arch-tag tag-animation">Gold Curtain Exit</span>
+          <span class="arch-tag tag-cta">CTA: Book a Session</span>
+        </div>
+      </div>
+    </div>
+    <div class="arch-section">
+      <div class="arch-num">02</div>
+      <div class="arch-content">
+        <div class="arch-section-name">Brand Philosophy</div>
+        <div class="arch-desc">One paragraph. Obsidian background, no imagery. Three lines reveal from alternating sides. Establishes emotional contract before services.</div>
+        <div class="arch-tags">
+          <span class="arch-tag tag-animation">Text Slice Reveal</span>
+          <span class="arch-tag tag-trust">Trust Builder</span>
+        </div>
+      </div>
+    </div>
+    <div class="arch-section">
+      <div class="arch-num">03</div>
+      <div class="arch-content">
+        <div class="arch-section-name">Treatments — Three Tiers</div>
+        <div class="arch-desc">Normal → Signature → Premium. Cards stagger in from right. Horizontal depth rack. Background tone deepens per tier.</div>
+        <div class="arch-tags">
+          <span class="arch-tag tag-animation">Stagger + Depth Parallax</span>
+          <span class="arch-tag tag-cta">CTA: View Details</span>
+        </div>
+      </div>
+    </div>
+    <div class="arch-section">
+      <div class="arch-num">04</div>
+      <div class="arch-content">
+        <div class="arch-section-name">The Ritual — Atmosphere & Trust</div>
+        <div class="arch-desc">Cinematic imagery grid. Hygiene + privacy + therapist credentials. No price mention. Purely trust-building.</div>
+        <div class="arch-tags">
+          <span class="arch-tag tag-trust">Objection Handler</span>
+          <span class="arch-tag tag-animation">Parallax Image Grid</span>
+        </div>
+      </div>
+    </div>
+    <div class="arch-section">
+      <div class="arch-num">05</div>
+      <div class="arch-content">
+        <div class="arch-section-name">Membership Tiers</div>
+        <div class="arch-desc">Pinned deck peel. Silver → Gold → Diamond → Platinum sequential reveal. Benefits table. Diamond marked "Most Popular".</div>
+        <div class="arch-tags">
+          <span class="arch-tag tag-pinned">Pinned 400vh</span>
+          <span class="arch-tag tag-animation">Deck Peel Reveal</span>
+          <span class="arch-tag tag-cta">CTA: Explore Memberships</span>
+        </div>
+      </div>
+    </div>
+    <div class="arch-section">
+      <div class="arch-num">06</div>
+      <div class="arch-content">
+        <div class="arch-section-name">Social Proof</div>
+        <div class="arch-desc">3–5 Google review quotes. Real names + stars. If unavailable at launch: replace with "By Appointment Only" trust strip.</div>
+        <div class="arch-tags">
+          <span class="arch-tag tag-trust">Reviews / Authority</span>
+        </div>
+      </div>
+    </div>
+    <div class="arch-section">
+      <div class="arch-num">07</div>
+      <div class="arch-content">
+        <div class="arch-section-name">Gift a Session</div>
+        <div class="arch-desc">"Give the gift of stillness." Single-focus strip. WhatsApp inquire link. Captures occasion buyers without disrupting main booking flow.</div>
+        <div class="arch-tags">
+          <span class="arch-tag tag-cta">CTA: Inquire on WhatsApp</span>
+          <span class="arch-tag tag-trust">Gifting Segment</span>
+        </div>
+      </div>
+    </div>
+    <div class="arch-section">
+      <div class="arch-num">08</div>
+      <div class="arch-content">
+        <div class="arch-section-name">Contact & Booking Footer</div>
+        <div class="arch-desc">"Begin Your Ritual." Two CTAs side-by-side. Address + map. Phone. Hours. Minimal dark footer.</div>
+        <div class="arch-tags">
+          <span class="arch-tag tag-cta">Book Now + Gift a Session</span>
+          <span class="arch-tag tag-animation">Headline Split Entry</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="gold-rule"></div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SECTION 3 — COLOR + TYPE -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="proposal-section">
+  <div class="section-eyebrow">Visual Identity</div>
+  <div class="section-title">Palette & Typography</div>
+
+  <div class="two-col">
+    <div>
+      <div style="font-size:11px;letter-spacing:0.2em;color:var(--ash);text-transform:uppercase;margin-bottom:16px;font-family:'Cinzel',serif;">Color Tokens</div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:40px;height:40px;border-radius:3px;background:#080808;border:1px solid #333;flex-shrink:0;"></div>
+          <div><div style="font-size:13px;color:var(--parchment);">Obsidian</div><div style="font-size:11px;color:var(--ash);font-family:monospace;">#080808 — Background</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:40px;height:40px;border-radius:3px;background:#111111;border:1px solid #333;flex-shrink:0;"></div>
+          <div><div style="font-size:13px;color:var(--parchment);">Charcoal Depth</div><div style="font-size:11px;color:var(--ash);font-family:monospace;">#111111 — Cards/Panels</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:40px;height:40px;border-radius:3px;background:#C9A84C;flex-shrink:0;"></div>
+          <div><div style="font-size:13px;color:var(--parchment);">Sovereign Gold</div><div style="font-size:11px;color:var(--ash);font-family:monospace;">#C9A84C — Headlines/CTAs</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:40px;height:40px;border-radius:3px;background:#8B6914;flex-shrink:0;"></div>
+          <div><div style="font-size:13px;color:var(--parchment);">Antique Brass</div><div style="font-size:11px;color:var(--ash);font-family:monospace;">#8B6914 — Borders/Inactive</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:40px;height:40px;border-radius:3px;background:#E8D5A3;flex-shrink:0;"></div>
+          <div><div style="font-size:13px;color:var(--parchment);">Champagne</div><div style="font-size:11px;color:var(--ash);font-family:monospace;">#E8D5A3 — Shimmer/Highlights</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:40px;height:40px;border-radius:3px;background:#F0EAD6;border:1px solid #333;flex-shrink:0;"></div>
+          <div><div style="font-size:13px;color:var(--parchment);">Parchment</div><div style="font-size:11px;color:var(--ash);font-family:monospace;">#F0EAD6 — Body Text</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:40px;height:40px;border-radius:3px;background:#6B1A2A;flex-shrink:0;"></div>
+          <div><div style="font-size:13px;color:var(--parchment);">Deep Crimson</div><div style="font-size:11px;color:var(--ash);font-family:monospace;">#6B1A2A — Limited Badges</div></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:11px;letter-spacing:0.2em;color:var(--ash);text-transform:uppercase;margin-bottom:16px;font-family:'Cinzel',serif;">Type Scale</div>
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div>
+          <div style="font-size:10px;color:var(--ash);font-family:'Cinzel',serif;letter-spacing:0.2em;margin-bottom:4px;">HERO H1 — Cormorant 300</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--parchment);line-height:1.05;">Stillness</div>
+        </div>
+        <div>
+          <div style="font-size:10px;color:var(--ash);font-family:'Cinzel',serif;letter-spacing:0.2em;margin-bottom:4px;">SECTION H2 — Cormorant 400</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:400;color:var(--parchment);">Our Treatments</div>
+        </div>
+        <div>
+          <div style="font-size:10px;color:var(--ash);font-family:'Cinzel',serif;letter-spacing:0.2em;margin-bottom:4px;">EYEBROW — Cinzel 400</div>
+          <div style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.3em;color:var(--gold);text-transform:uppercase;">Signature Collection</div>
+        </div>
+        <div>
+          <div style="font-size:10px;color:var(--ash);font-family:'Cinzel',serif;letter-spacing:0.2em;margin-bottom:4px;">PRICE — Cinzel 400</div>
+          <div style="font-family:'Cinzel',serif;font-size:20px;color:var(--gold);">From ₹2,500</div>
+        </div>
+        <div>
+          <div style="font-size:10px;color:var(--ash);font-family:'Cinzel',serif;letter-spacing:0.2em;margin-bottom:4px;">BODY — DM Sans 300</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:300;color:var(--parchment);line-height:1.7;max-width:320px;">Aromatherapy uses natural essential oils to promote relaxation, improve mood, and enhance overall well-being.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="gold-rule"></div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SECTION 4 — SERVICE CARDS -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="proposal-section">
+  <div class="section-eyebrow">Treatments Preview</div>
+  <div class="section-title">Service Card Design</div>
+  <div class="section-subtitle">Cards stagger in from right on scroll. Hover lifts + gold border glows.</div>
+
+  <div class="service-row">
+    <div class="service-card">
+      <div class="service-card-img svc-img-balinese">
+        <div class="service-tier-badge">Normal</div>
+      </div>
+      <div class="service-card-body">
+        <div class="service-card-name">Balinese Massage</div>
+        <div class="service-card-duration">60 · 90 · 120 mins</div>
+        <div class="service-card-desc">Gentle pressure techniques that relax muscles, improve circulation, and reduce stress — a journey to complete unwind.</div>
+        <div class="service-card-price">From ₹3,000</div>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-img svc-img-aroma">
+        <div class="service-tier-badge">Normal</div>
+      </div>
+      <div class="service-card-body">
+        <div class="service-card-name">Aromatherapy</div>
+        <div class="service-card-duration">60 · 90 · 120 mins</div>
+        <div class="service-card-desc">Natural essential oils crafted to elevate mood, calm the nervous system, and restore your sense of self.</div>
+        <div class="service-card-price">From ₹2,500</div>
+      </div>
+    </div>
+    <div class="service-card" style="border-color: var(--brass);">
+      <div class="service-card-img svc-img-signature">
+        <div class="service-tier-badge" style="color:var(--champagne);border-color:rgba(232,213,163,0.4);">Signature</div>
+      </div>
+      <div class="service-card-body">
+        <div class="service-card-name">Signature Massage</div>
+        <div class="service-card-duration">60 · 90 · 120 mins</div>
+        <div class="service-card-desc">A bespoke blend of techniques tailored to your body's precise needs. No two sessions are the same.</div>
+        <div class="service-card-price">From ₹3,500</div>
+      </div>
+    </div>
+  </div>
+  <div class="service-row" style="margin-top:16px;">
+    <div class="service-card" style="border-color:#2a1a0a;">
+      <div class="service-card-img svc-img-candle">
+        <div class="service-tier-badge" style="color:#E8A87C;border-color:rgba(232,168,124,0.4);">Premium</div>
+      </div>
+      <div class="service-card-body">
+        <div class="service-card-name">Hot Candle Massage</div>
+        <div class="service-card-duration">60 · 90 · 120 mins</div>
+        <div class="service-card-desc">Warm melted candle wax nourishes the skin while deep heat dissolves every knot and releases the day.</div>
+        <div class="service-card-price">From ₹3,500</div>
+      </div>
+    </div>
+    <div class="service-card" style="border-color:#2a1a0a;">
+      <div class="service-card-img svc-img-scrub">
+        <div class="service-tier-badge" style="color:#E8A87C;border-color:rgba(232,168,124,0.4);">Premium</div>
+      </div>
+      <div class="service-card-body">
+        <div class="service-card-name">Body Scrubs</div>
+        <div class="service-card-duration">60 · 90 · 120 mins</div>
+        <div class="service-card-desc">A ritual of renewal — exfoliation that reveals brighter skin, boosts circulation, and restores your glow.</div>
+        <div class="service-card-price">From ₹3,500</div>
+      </div>
+    </div>
+    <div class="service-card" style="background:linear-gradient(135deg,#111108,#1a1a0a);border:1px dashed rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;min-height:200px;">
+      <div style="text-align:center;padding:24px;">
+        <div style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.2em;color:var(--brass);text-transform:uppercase;margin-bottom:8px;">Add-on</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--parchment);margin-bottom:4px;">Steam Bath</div>
+        <div style="font-family:'Cinzel',serif;font-size:14px;color:var(--gold);">+ ₹500</div>
+        <div style="font-size:11px;color:var(--ash);margin-top:8px;">Available with any treatment</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="gold-rule"></div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SECTION 5 — MEMBERSHIP -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="proposal-section">
+  <div class="section-eyebrow">Membership Preview</div>
+  <div class="section-title">The Four Tiers</div>
+  <div class="section-subtitle">Deck peel reveal — each card peels away to expose the next. Pinned for 400vh.</div>
+
+  <div class="alert alert-warning">
+    <strong style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.1em;">PRICING NOTE FROM MEDHAVI:</strong><br>
+    Silver, Gold & Diamond all cost ₹1,667/session — no financial upgrade incentive. Recommend adding tier-exclusive benefits (priority booking, complimentary steam bath, guest sessions) so the website can justify the tiers. We've shown suggested benefits below.
+  </div>
+
+  <div class="membership-showcase">
+    <div class="mem-card mem-silver">
+      <div class="mem-eyebrow" style="color:var(--ash);">Entry</div>
+      <div class="mem-name" style="color:var(--parchment);">Silver</div>
+      <div class="mem-price">₹5,000</div>
+      <div class="mem-sessions">3 sessions · ₹1,667 each</div>
+      <div class="mem-benefit">Access to all treatments</div>
+      <div class="mem-benefit">Flexible booking</div>
+      <div class="mem-benefit">Valid 6 months</div>
+    </div>
+    <div class="mem-card mem-gold">
+      <div class="mem-eyebrow" style="color:var(--gold);">Preferred</div>
+      <div class="mem-name" style="color:var(--champagne);">Gold</div>
+      <div class="mem-price">₹10,000</div>
+      <div class="mem-sessions">6 sessions · ₹1,667 each</div>
+      <div class="mem-benefit">All Silver benefits</div>
+      <div class="mem-benefit">Complimentary steam bath</div>
+      <div class="mem-benefit">Priority slot booking</div>
+    </div>
+    <div class="mem-card mem-diamond">
+      <div class="mem-badge badge-popular">Most Popular</div>
+      <div class="mem-eyebrow" style="color:#A8B8E8;">Exclusive</div>
+      <div class="mem-name" style="color:#C8D8F8;">Diamond</div>
+      <div class="mem-price">₹15,000</div>
+      <div class="mem-sessions">9 sessions · ₹1,667 each</div>
+      <div class="mem-benefit">All Gold benefits</div>
+      <div class="mem-benefit">1 guest session / quarter</div>
+      <div class="mem-benefit">Dedicated concierge</div>
+    </div>
+    <div class="mem-card mem-platinum">
+      <div class="mem-badge badge-limited">Limited</div>
+      <div class="mem-eyebrow" style="color:var(--champagne);">Ultimate</div>
+      <div class="mem-name" style="color:var(--champagne);">Platinum</div>
+      <div class="mem-price">₹30,000</div>
+      <div class="mem-sessions">24 sessions · ₹1,250 each</div>
+      <div class="mem-benefit">All Diamond benefits</div>
+      <div class="mem-benefit">Quarterly skin consultation</div>
+      <div class="mem-benefit">25% saving vs walk-in</div>
+    </div>
+  </div>
+</div>
+
+<div class="gold-rule"></div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SECTION 6 — CINEMATIC TECHNIQUES -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="proposal-section">
+  <div class="section-eyebrow">Animation System</div>
+  <div class="section-title">4 Signature Cinematic Techniques</div>
+  <div class="section-subtitle">GSAP + ScrollTrigger. Each used once — overuse kills the effect.</div>
+
+  <div class="techniques-grid">
+    <div class="technique-card" data-num="1">
+      <div class="technique-name">The Curtain Transition</div>
+      <div class="technique-desc">Between Hero and About: a full-viewport gold panel drops from the top, holds 0.15s, then retracts as the next section fades in beneath. Film-cut feel. Used once only — between sections 1 and 2.</div>
+      <span class="technique-tag">ScrollTrigger.pin()</span>
+    </div>
+    <div class="technique-card" data-num="2">
+      <div class="technique-name">Deck Peel</div>
+      <div class="technique-desc">Membership tiers stack as a deck. Each card exits via translateY(-100%) while the next scales up from 0.88. Overlap of 0.2s creates seamless layering — like peeling back luxury stationery.</div>
+      <span class="technique-tag">pin + scrub: 1</span>
+    </div>
+    <div class="technique-card" data-num="3">
+      <div class="technique-name">Text Slice Reveal</div>
+      <div class="technique-desc">All major headlines: overflow:hidden parent. Text translateY(100%) into view — line by line, staggered 0.08s. Text travels, never fades. This distinction separates cinematic from amateur.</div>
+      <span class="technique-tag">SplitText + stagger</span>
+    </div>
+    <div class="technique-card" data-num="4">
+      <div class="technique-name">Parallax Depth Layering</div>
+      <div class="technique-desc">Three speed layers per section: 0.6x (bg glow), 1.0x (cards), 1.2x (eyebrow labels). Creates genuine depth — like looking through a lit window. No 3D transforms.</div>
+      <span class="technique-tag">Multiple ScrollTriggers</span>
+    </div>
+  </div>
+</div>
+
+<div class="gold-rule"></div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SECTION 7 — TECH STACK -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="proposal-section">
+  <div class="section-eyebrow">Architecture</div>
+  <div class="section-title">Technical Stack</div>
+  <div class="section-subtitle">Next.js 15 · Static export · Cloudflare Pages. Zero backend needed.</div>
+
+  <div class="tech-grid">
+    <div class="tech-item">
+      <div class="tech-name">Next.js 15</div>
+      <div class="tech-role">Framework</div>
+      <div class="tech-note">App Router. Static export <code style="font-size:11px;color:var(--gold);">output: 'export'</code>. No adapter needed for Cloudflare — just serve the <code style="font-size:11px;color:var(--gold);">out/</code> dir.</div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-name">GSAP + ScrollTrigger</div>
+      <div class="tech-role">Animation</div>
+      <div class="tech-note">Timeline orchestration + scroll-pinning. <code style="font-size:11px;color:var(--gold);">gsap.context().revert()</code> prevents React remount accumulation. Single import from <code style="font-size:11px;color:var(--gold);">src/lib/gsap.ts</code>.</div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-name">Lenis</div>
+      <div class="tech-role">Smooth Scroll</div>
+      <div class="tech-note">Cinematic inertia scrolling. Integrates natively with GSAP ScrollTrigger. Without it, scroll feels mechanical on Windows Chrome.</div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-name">Tailwind CSS 3.4</div>
+      <div class="tech-role">Styling</div>
+      <div class="tech-note">Color tokens in <code style="font-size:11px;color:var(--gold);">theme.extend</code>. Stable config model. Avoid Tailwind 4 — fewer plugins, new syntax, no upside here.</div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-name">sharp</div>
+      <div class="tech-role">Image Pipeline</div>
+      <div class="tech-note">Pre-convert your 4 HEIC source images to WebP at 2400px + 1200px. Commit to <code style="font-size:11px;color:var(--gold);">public/images/optimized/</code>. Static export can't use Next.js image server.</div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-name">WhatsApp Deeplink</div>
+      <div class="tech-role">Primary CTA</div>
+      <div class="tech-note">Pre-filled message. One tap to booking. No form, no backend. India's highest-converting CTA pattern for local luxury services. Calendly as secondary for structured booking.</div>
+    </div>
+  </div>
+</div>
+
+<div class="gold-rule"></div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SECTION 8 — MISSING CONTENT -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="proposal-section">
+  <div class="section-eyebrow">Content Gaps</div>
+  <div class="section-title">Needed Before Launch</div>
+  <div class="section-subtitle">From Medhavi's analysis — these gaps cost bookings if left empty.</div>
+
+  <div class="missing-grid">
+    <div class="missing-item">
+      <div class="missing-title">Working Hours</div>
+      <div class="missing-desc">Not in brochure. Website needs: days open, first/last slot. Every booking decision depends on this.</div>
+    </div>
+    <div class="missing-item">
+      <div class="missing-title">Therapist Credentials</div>
+      <div class="missing-desc">One line: training origin, years experience, number of therapists. Converts hesitant first-timers.</div>
+    </div>
+    <div class="missing-item">
+      <div class="missing-title">Privacy & Gender Policy</div>
+      <div class="missing-desc">Is spa mixed-gender? Are sessions private rooms? Answering on-site removes a major unspoken objection.</div>
+    </div>
+    <div class="missing-item">
+      <div class="missing-title">Couple Sessions</div>
+      <div class="missing-desc">Highest-demand service in Vizag (anniversary, honeymoon). High revenue unlock — if available, must be featured.</div>
+    </div>
+    <div class="missing-item">
+      <div class="missing-title">Gift Vouchers</div>
+      <div class="missing-desc">"Gift a session of stillness" — a distinct offering path with WhatsApp inquire link activates the gifting segment.</div>
+    </div>
+    <div class="missing-item">
+      <div class="missing-title">Google Maps Navigation Note</div>
+      <div class="missing-desc">4th floor, PNB Complex isn't obvious. Add landmark reference: "near Rushikonda junction, above [bank]".</div>
+    </div>
+  </div>
+</div>
+
+<div class="gold-rule"></div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- FOOTER CTA MOCKUP -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="proposal-section">
+  <div class="section-eyebrow">Footer CTA Preview</div>
+  <div class="section-title">The Close</div>
+  <div class="cta-showcase" style="margin-top:24px;">
+    <div class="cta-headline">Begin Your Ritual</div>
+    <div class="cta-sub">Book a session. Gift a membership. Arrive as you are.</div>
+    <div class="cta-btns">
+      <button class="btn-primary">Book a Session</button>
+      <button class="btn-secondary">Gift a Session</button>
+    </div>
+    <div style="margin-top:32px;font-size:12px;color:var(--ash);position:relative;">
+      <span style="color:var(--gold);">7673 996 993</span> &nbsp;·&nbsp; PNB Complex, 4th Floor, Madhurawada, Visakhapatnam 530041
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- APPROVAL -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="approval-section">
+  <div class="approval-title">Does this design direction work for you?</div>
+  <div class="approval-sub">Click to respond, or give feedback in the terminal.</div>
+  <div class="approval-opts">
+    <div class="approval-opt" onclick="this.classList.toggle('selected')" data-choice="approve-all">Yes — approve full design</div>
+    <div class="approval-opt" onclick="this.classList.toggle('selected')" data-choice="tweak-colors">Adjust palette</div>
+    <div class="approval-opt" onclick="this.classList.toggle('selected')" data-choice="tweak-layout">Change section order</div>
+    <div class="approval-opt" onclick="this.classList.toggle('selected')" data-choice="proceed-build">Start building now</div>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.approval-opt').forEach(opt => {
+  opt.addEventListener('click', () => {
+    const choice = opt.getAttribute('data-choice');
+    if (window.__superpowers_select) window.__superpowers_select(choice, opt.textContent.trim());
+  });
+});
+</script>
+
+</body>
+</html>
