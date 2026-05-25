@@ -479,12 +479,27 @@ export default function DestinyV4Page() {
           >
             Close
           </button>
+          <div className="mobile-drawer-brand">
+            <span className="mobile-drawer-wordmark">Destiny</span>
+            <span className="mobile-drawer-sub">Wellness &amp; Spa</span>
+          </div>
+          <div className="mobile-drawer-ornament" aria-hidden="true" />
           <nav>
             <a href="#therapies" onClick={() => setMobileMenuOpen(false)}>Therapies</a>
             <a href="#signature" onClick={() => setMobileMenuOpen(false)}>Signature</a>
             <a href="#membership" onClick={() => setMobileMenuOpen(false)}>Membership</a>
             <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Reserve</a>
           </nav>
+          <div className="mobile-drawer-ornament" aria-hidden="true" />
+          <a
+            className="mobile-drawer-cta"
+            href={WHATSAPP_BOOKING}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Reserve Now
+          </a>
         </div>
       )}
 

@@ -564,9 +564,13 @@ html.lenis {
   transform: translateX(8px);
 }
 
+.spa-v4 .cta:active {
+  background: rgba(201, 169, 110, 0.08);
+}
+
 .spa-v4 .hero-scroll {
   position: absolute;
-  bottom: 32px;
+  bottom: max(32px, calc(env(safe-area-inset-bottom) + 20px));
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -610,6 +614,16 @@ html.lenis {
 @keyframes spaFadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes mobileSpaStill {
+  from { opacity: 0.95; }
+  to   { opacity: 1; }
+}
+
+@keyframes mobileDrawerIn {
+  from { clip-path: inset(0 0 100% 0); opacity: 0; }
+  to   { clip-path: inset(0 0 0% 0);   opacity: 1; }
 }
 
 .spa-v4 .marquee {
@@ -1631,10 +1645,11 @@ html.lenis {
   display: none;
   flex-direction: column;
   gap: 5px;
-  background: transparent;
-  border: 0;
+  background: rgba(10, 8, 7, 0.45);
+  border: 1px solid var(--line);
   cursor: pointer;
-  padding: 8px;
+  padding: 12px;
+  border-radius: 2px;
 }
 
 .spa-v4 .nav-hamburger span {
@@ -1655,7 +1670,8 @@ html.lenis {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 56px;
+  gap: 40px;
+  animation: mobileDrawerIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .spa-v4 .mobile-drawer nav {
@@ -1694,6 +1710,51 @@ html.lenis {
 
 .spa-v4 .mobile-drawer-close:hover {
   background: rgba(201, 169, 110, 0.08);
+}
+
+.spa-v4 .mobile-drawer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.spa-v4 .mobile-drawer-wordmark {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 13px;
+  letter-spacing: 0.52em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.spa-v4 .mobile-drawer-sub {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ivory-dim);
+}
+
+.spa-v4 .mobile-drawer-ornament {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.spa-v4 .mobile-drawer-cta {
+  display: inline-block;
+  padding: 14px 36px;
+  border: 1px solid rgba(201, 169, 110, 0.45);
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.spa-v4 .mobile-drawer-cta:hover,
+.spa-v4 .mobile-drawer-cta:active {
+  background: rgba(201, 169, 110, 0.08);
+  border-color: rgba(201, 169, 110, 0.7);
 }
 
 /* ── Testimonials ── */
@@ -2377,6 +2438,7 @@ body.loaded .spa-v4 .chapter-rail {
   .spa-v4 .nav,
   .spa-v4 .nav.scrolled {
     padding: max(18px, calc(env(safe-area-inset-top) + 10px)) 22px 18px;
+    background: linear-gradient(180deg, rgba(10, 8, 7, 0.55) 0%, transparent 100%);
   }
 
   .spa-v4 .nav-links,
@@ -2467,6 +2529,19 @@ body.loaded .spa-v4 .chapter-rail {
   .spa-v4 .service-modal-prices {
     grid-template-columns: 1fr;
   }
+
+  .spa-v4 .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .spa-v4 .faq-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .spa-v4 .faq-head {
+    position: static;
+  }
 }
 
 @media (max-width: 500px) {
@@ -2495,15 +2570,6 @@ body.loaded .spa-v4 .chapter-rail {
 
   .spa-v4 .card-body-wrap {
     padding: 30px 24px 32px;
-  }
-
-  .spa-v4 .durations {
-    flex-direction: column;
-  }
-
-  .spa-v4 .durations button + button {
-    border-left: 0;
-    border-top: 1px solid var(--line);
   }
 
   .spa-v4 .card-actions,
@@ -2540,28 +2606,29 @@ body.loaded .spa-v4 .chapter-rail {
     padding: 80px 24px;
   }
 
-  .spa-v4 .testimonials-grid {
-    grid-template-columns: 1fr;
-  }
-
   .spa-v4 .gift-inner {
     grid-template-columns: 1fr;
     gap: 48px;
   }
 
-  .spa-v4 .faq-inner {
-    grid-template-columns: 1fr;
-    gap: 40px;
+  .spa-v4 .intro {
+    padding: 120px 24px;
   }
 
-  .spa-v4 .faq-head {
-    position: static;
+  .spa-v4 .editorial {
+    height: auto;
+    min-height: 50vh;
+    padding: 80px 0;
+  }
+
+  .spa-v4 .editorial .big {
+    font-size: clamp(28px, 8vw, 48px);
   }
 }
 
 @media (hover: none) {
   .spa-v4 .hero-bg .photo {
-    animation: none;
+    animation: mobileSpaStill 24s ease-in-out infinite alternate;
     inset: 0;
   }
 
