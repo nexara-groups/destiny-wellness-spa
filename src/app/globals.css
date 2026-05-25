@@ -578,7 +578,7 @@ html.lenis {
   align-items: center;
   gap: 14px;
   opacity: 0;
-  animation: spaFadeUp 1.4s 2.3s ease forwards;
+  animation: spaHeroScrollFadeUp 1.4s 2.3s ease forwards;
   z-index: 3;
 }
 
@@ -614,6 +614,11 @@ html.lenis {
 @keyframes spaFadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spaHeroScrollFadeUp {
+  from { opacity: 0; transform: translate(-50%, 20px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
 }
 
 @keyframes mobileSpaStill {
