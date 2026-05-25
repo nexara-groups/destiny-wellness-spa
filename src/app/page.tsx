@@ -5,10 +5,13 @@ import PhilosophySection from '@/components/sections/PhilosophySection';
 import TreatmentsSection from '@/components/sections/TreatmentsSection';
 import RitualSection from '@/components/sections/RitualSection';
 import MembershipSection from '@/components/sections/MembershipSection';
+import SocialProofSection from '@/components/sections/SocialProofSection';
+import GiftSection from '@/components/sections/GiftSection';
+import BookingFooter from '@/components/sections/BookingFooter';
 
 export default function Home() {
   return (
-    <main>
+    <main className="overflow-x-hidden">
       <Nav />
       <GoldCurtain />
       <HeroSection />
@@ -16,6 +19,9 @@ export default function Home() {
       <TreatmentsSection />
       <RitualSection />
       <MembershipSection />
+      <SocialProofSection />
+      <GiftSection />
+      <BookingFooter />
     </main>
   );
 }
