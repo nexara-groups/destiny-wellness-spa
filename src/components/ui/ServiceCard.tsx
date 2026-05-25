@@ -21,7 +21,12 @@ export default function ServiceCard({ service, imageSlot }: ServiceCardProps) {
       {/* Image area */}
       <div className="relative h-48 overflow-hidden">
         {imageSlot ?? (
-          <div className="w-full h-full bg-gradient-to-br from-[#1a1208] to-[#2d1e0a]" />
+          <div
+            className="w-full h-full grain"
+            style={{
+              background: 'radial-gradient(ellipse 80% 80% at 30% 60%, rgba(139,105,20,0.2) 0%, transparent 60%), linear-gradient(145deg, #0f0d08 0%, #1a1208 60%, #0d0a04 100%)',
+            }}
+          />
         )}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-charcoal" />
         <span className="absolute top-3 left-3 font-cinzel text-[8px] tracking-[0.2em] text-gold uppercase bg-obsidian/70 border border-gold/30 px-2 py-1">

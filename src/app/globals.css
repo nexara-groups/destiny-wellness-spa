@@ -56,3 +56,40 @@ html.lenis {
   overflow: hidden;
   display: block;
 }
+
+/* Film grain overlay */
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Hero atmospheric background */
+.hero-atmosphere {
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(139,105,20,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 30%, rgba(201,168,76,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 100% 100% at 50% 100%, rgba(45,30,10,0.6) 0%, transparent 70%),
+    linear-gradient(160deg, #0a0803 0%, #080808 40%, #0d0a04 100%);
+}
+
+/* Ritual image placeholders */
+.ritual-placeholder-1 {
+  background:
+    radial-gradient(ellipse 70% 80% at 30% 70%, rgba(201,168,76,0.12) 0%, transparent 60%),
+    linear-gradient(145deg, #0f0d08 0%, #1a1208 50%, #0a0803 100%);
+}
+.ritual-placeholder-2 {
+  background:
+    radial-gradient(ellipse 60% 90% at 70% 30%, rgba(139,105,20,0.15) 0%, transparent 55%),
+    linear-gradient(200deg, #141008 0%, #0d0a04 60%, #080808 100%);
+}
+.ritual-placeholder-3 {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 80%, rgba(201,168,76,0.1) 0%, transparent 65%),
+    linear-gradient(120deg, #080808 0%, #131008 50%, #1a1208 100%);
+}

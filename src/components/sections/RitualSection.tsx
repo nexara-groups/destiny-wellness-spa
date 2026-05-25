@@ -79,23 +79,33 @@ export default function RitualSection() {
           </p>
         </div>
 
-        {/* Image grid */}
+        {/* Image grid — CSS atmospheric panels until real spa photos arrive */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-20">
-          {[1, 2, 3].map((i) => (
+          {([
+            { cls: 'ritual-placeholder-1', label: 'Private suite', height: 'md:row-span-1' },
+            { cls: 'ritual-placeholder-2', label: 'Treatment room' },
+            { cls: 'ritual-placeholder-3', label: 'Ambience' },
+          ] as const).map((panel, i) => (
             <div
               key={i}
-              className="ritual-img relative overflow-hidden rounded-sm aspect-[4/3]"
+              className={`ritual-img relative overflow-hidden rounded-sm grain ${panel.cls} ${
+                i === 0 ? 'aspect-[3/4]' : 'aspect-[4/3]'
+              }`}
             >
-              <picture>
-                <source srcSet={`/images/optimized/ritual-${i}.webp`} media="(min-width: 768px)" />
-                <img
-                  src={`/images/optimized/ritual-${i}@1x.webp`}
-                  alt={`Destiny Wellness & Spa — atmosphere ${i}`}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </picture>
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-obsidian/40" />
+              {/* Inner subtle texture lines */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: i === 0
+                    ? 'linear-gradient(180deg, transparent 60%, rgba(8,8,8,0.5) 100%)'
+                    : 'linear-gradient(180deg, rgba(8,8,8,0.2) 0%, transparent 40%, rgba(8,8,8,0.4) 100%)',
+                }}
+              />
+              {/* Subtle gold line accent */}
+              <div
+                className="absolute bottom-4 left-4"
+                style={{ width: 32, height: 1, background: 'rgba(201,168,76,0.4)' }}
+              />
             </div>
           ))}
         </div>

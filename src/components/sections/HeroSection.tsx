@@ -60,22 +60,17 @@ export default function HeroSection() {
       ref={sectionRef}
       className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden"
     >
-      {/* Background */}
-      <div className="hero-bg-img absolute inset-0 scale-110">
-        <picture>
-          <source srcSet="/images/optimized/hero-bg.webp" media="(min-width: 768px)" />
-          <img
-            src="/images/optimized/hero-bg@1x.webp"
-            alt=""
-            className="w-full h-full object-cover"
-            loading="eager"
-            fetchPriority="high"
-          />
-        </picture>
-        <div className="absolute inset-0" style={{ background: 'rgba(8,8,8,0.72)' }} />
+      {/* Background — atmospheric CSS, replaced by real spa photo before launch */}
+      <div className="hero-bg-img absolute inset-0 scale-110 hero-atmosphere grain">
+        {/* Vignette edge */}
         <div
           className="absolute inset-0"
-          style={{ background: 'radial-gradient(ellipse at 30% 60%, rgba(201,168,76,0.08) 0%, transparent 60%)' }}
+          style={{ background: 'radial-gradient(ellipse 90% 90% at 50% 50%, transparent 40%, rgba(8,8,8,0.7) 100%)' }}
+        />
+        {/* Warm horizontal band */}
+        <div
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(to bottom, rgba(8,8,8,0.4) 0%, transparent 30%, transparent 60%, rgba(8,8,8,0.6) 100%)' }}
         />
       </div>
 
