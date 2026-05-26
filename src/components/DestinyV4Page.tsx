@@ -129,12 +129,11 @@ function ServiceCard({
   return (
     <article className={`card ${delayClass}`} data-card>
       <div className="card-visual">
-        <div 
-          className={`img ${meta.imageClass} parallax-img`} 
-          role="img" 
-          aria-label={`Cinematic view of our ${service.name}`} 
+        <div
+          className={`img ${meta.imageClass} parallax-img`}
+          role="img"
+          aria-label={`Cinematic view of our ${service.name}`}
         />
-        <div className="label">{meta.kicker}</div>
         <div className="ordinal">{meta.ordinal}</div>
       </div>
       <div className="card-body-wrap">
@@ -214,7 +213,6 @@ function ServiceDetailModal({
             role="img" 
             aria-label={`Detailed view of ${service.name}`} 
           />
-          <div className="label">{meta.kicker}</div>
         </div>
 
         <div className="service-modal-copy">

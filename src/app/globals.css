@@ -1656,14 +1656,16 @@ html.lenis {
 .spa-v4 .tier-badge {
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  font-size: 10px;
-  letter-spacing: 0.22em;
+  left: 0;
+  right: 0;
+  font-size: 9px;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
-  padding: 6px 16px;
+  padding: 7px 0;
+  text-align: center;
   white-space: nowrap;
   z-index: 10;
+  border-radius: 120px 120px 0 0;
 }
 
 .spa-v4 .tier-badge-popular {
@@ -1672,8 +1674,8 @@ html.lenis {
 }
 
 .spa-v4 .tier-badge-limited {
-  background: transparent;
-  border: 1px solid var(--gold);
+  background: rgba(201, 168, 76, 0.12);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.35);
   color: var(--gold);
 }
 
@@ -3350,12 +3352,11 @@ body.light-theme {
 .spa-v4.light-theme .tier-badge-popular {
   background: #9A7210;
   color: #FFFFFF;
-  border: 1px solid #9A7210;
 }
 
 .spa-v4.light-theme .tier-badge-limited {
-  background: #FFFFFF;
-  border: 1px solid #9A7210;
+  background: rgba(154, 114, 16, 0.10);
+  border-bottom: 1px solid rgba(154, 114, 16, 0.35);
   color: #9A7210;
 }
 
