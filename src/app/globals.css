@@ -149,15 +149,15 @@ html.lenis {
   --obsidian-2: #100c0a;
   --card: #1a1614;
   --card-2: #1f1a17;
-  --gold: #D4AF55;
-  --gold-soft: #a88a52;
-  --gold-bright: #F0C84A;
-  --gold-deep: #A8831C;
+  --gold: #C4984A;
+  --gold-soft: #9A7842;
+  --gold-bright: #D4A848;
+  --gold-deep: #9A7218;
   --ivory: #ece4d3;
   --ivory-dim: #bdb2a0;
   --muted: #7a7367;
-  --line: rgba(212, 175, 85, 0.2);
-  --line-strong: rgba(212, 175, 85, 0.48);
+  --line: rgba(196, 152, 74, 0.2);
+  --line-strong: rgba(196, 152, 74, 0.48);
   --easing: cubic-bezier(.7, 0, .2, 1);
   min-height: 100vh;
   background: var(--obsidian);
@@ -373,7 +373,7 @@ html.lenis {
   inset: 0;
   z-index: 1;
   background:
-    radial-gradient(900px 700px at 50% 35%, rgba(212, 175, 85, 0.24), transparent 60%),
+    radial-gradient(900px 700px at 50% 35%, rgba(196, 152, 74, 0.24), transparent 60%),
     radial-gradient(1200px 800px at 50% 100%, rgba(10, 8, 7, 0.85), transparent 70%),
     linear-gradient(180deg, rgba(10, 8, 7, 0.25) 0%, rgba(10, 8, 7, 0.5) 60%, rgba(10, 8, 7, 0.92) 100%);
 }
@@ -387,7 +387,7 @@ html.lenis {
   top: 35%;
   z-index: 2;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(240, 200, 100, 0.45), rgba(212, 175, 85, 0) 65%);
+  background: radial-gradient(circle, rgba(180, 140, 56, 0.45), rgba(196, 152, 74, 0) 65%);
   filter: blur(40px);
   animation: spaBreathe 9s ease-in-out infinite alternate;
 }
@@ -931,7 +931,7 @@ html.lenis {
   position: relative;
   overflow: hidden;
   border-radius: 200px 200px 0 0;
-  border: 1px solid rgba(212, 175, 85, 0.16);
+  border: 1px solid rgba(196, 152, 74, 0.16);
   background: #0d0a08;
   transition: transform .6s var(--easing), border-color .6s ease, box-shadow .6s ease;
   -webkit-mask-image: -webkit-radial-gradient(white, black);
@@ -949,8 +949,8 @@ html.lenis {
 }
 
 .spa-v4 .card:hover .card-visual {
-  border-color: rgba(212, 175, 85, 0.48);
-  box-shadow: 0 20px 50px -15px rgba(212, 175, 85, 0.2);
+  border-color: rgba(196, 152, 74, 0.48);
+  box-shadow: 0 20px 50px -15px rgba(196, 152, 74, 0.2);
 }
 
 .spa-v4 .card:hover .card-visual .img {
@@ -1068,7 +1068,7 @@ html.lenis {
 .spa-v4 .durations {
   margin-top: 28px;
   display: flex;
-  border: 1px solid rgba(212, 175, 85, 0.16);
+  border: 1px solid rgba(196, 152, 74, 0.16);
   border-radius: 30px; /* Modern round pill container */
   overflow: hidden;
   background: rgba(20, 16, 14, 0.25);
@@ -1094,7 +1094,7 @@ html.lenis {
 }
 
 .spa-v4 .durations button.active {
-  background: rgba(212, 175, 85, 0.16);
+  background: rgba(196, 152, 74, 0.16);
   color: var(--gold-bright);
 }
 
@@ -1121,7 +1121,7 @@ html.lenis {
 }
 
 .spa-v4 .card-review {
-  border: 1px solid rgba(212, 175, 85, 0.32);
+  border: 1px solid rgba(196, 152, 74, 0.32);
   background: rgba(20, 16, 14, 0.2);
   padding: 11px 22px; /* Pill padding */
   border-radius: 22px; /* Sleek rounded pill outline */
@@ -1130,7 +1130,7 @@ html.lenis {
 }
 
 .spa-v4 .card-review:hover {
-  background: rgba(212, 175, 85, 0.12);
+  background: rgba(196, 152, 74, 0.12);
   color: var(--gold-bright);
   border-color: var(--gold);
 }
@@ -1138,8 +1138,8 @@ html.lenis {
 .spa-v4 .steam-tag {
   margin-top: 18px;
   padding: 8px 16px;
-  border: 1px solid rgba(212, 175, 85, 0.24);
-  background: rgba(212, 175, 85, 0.05);
+  border: 1px solid rgba(196, 152, 74, 0.24);
+  background: rgba(196, 152, 74, 0.05);
   border-radius: 20px; /* Pill-shaped tag */
   align-self: flex-start;
 }
@@ -1547,7 +1547,7 @@ html.lenis {
 }
 
 .spa-v4 .tier:hover {
-  border-color: rgba(212, 175, 85, 0.48);
+  border-color: rgba(196, 152, 74, 0.48);
   transform: translateY(-8px);
   background: linear-gradient(180deg, rgba(201, 169, 110, 0.08), rgba(201, 169, 110, 0.01));
 }
@@ -1810,7 +1810,7 @@ html.lenis {
 }
 
 .spa-v4 .testimonial-card {
-  border: 1px solid rgba(212, 175, 85, 0.16);
+  border: 1px solid rgba(196, 152, 74, 0.16);
   padding: 44px 36px 36px;
   position: relative;
   background: rgba(20, 16, 14, 0.35);
@@ -1823,9 +1823,9 @@ html.lenis {
 }
 
 .spa-v4 .testimonial-card:hover {
-  border-color: rgba(212, 175, 85, 0.48);
+  border-color: rgba(196, 152, 74, 0.48);
   transform: translateY(-6px);
-  box-shadow: 0 20px 40px -15px rgba(212, 175, 85, 0.12);
+  box-shadow: 0 20px 40px -15px rgba(196, 152, 74, 0.12);
 }
 
 .spa-v4 .testimonial-card .tmark {
