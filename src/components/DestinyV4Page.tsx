@@ -406,7 +406,7 @@ export default function DestinyV4Page() {
             if (rect.bottom < -180 || rect.top > vh + 180) return;
             const speed = Number(element.dataset.speed ?? '1');
             const localProgress = (rect.top + rect.height / 2 - vh / 2) / vh;
-            const translateY = localProgress * -52 * speed;
+            const translateY = localProgress * -80 * speed;
             if (element.classList.contains('parallax-img')) {
               const baseScale = element.closest('.intro-bg') ? 1.1 : 1.08;
               element.style.transform = `translate3d(0, ${translateY}px, 0) scale(${baseScale})`;

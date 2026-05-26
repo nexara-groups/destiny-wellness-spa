@@ -12,10 +12,11 @@ export default function LenisProvider({ children }: { children: React.ReactNode 
     if (isTouchDevice) return;
 
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      duration: 0.88,
+      easing: (t: number) => 1 - Math.pow(1 - t, 3),
       orientation: 'vertical',
       smoothWheel: true,
+      wheelMultiplier: 1.1,
     });
 
     setLenisInstance(lenis);
