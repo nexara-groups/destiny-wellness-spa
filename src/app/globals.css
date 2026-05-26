@@ -2943,17 +2943,11 @@ body.light-theme {
 }
 
 .spa-v4.light-theme .editorial::after {
-  background: linear-gradient(180deg, #FAF8F5 0%, rgba(250, 248, 245, 0) 22%, rgba(250, 248, 245, 0) 78%, #FAF8F5 100%);
+  background: linear-gradient(180deg, rgba(250, 248, 245, 0.96) 0%, transparent 20%, transparent 80%, rgba(250, 248, 245, 0.96) 100%);
 }
 
 .spa-v4.light-theme .editorial .veil,
-.spa-v4.light-theme .intro-bg .veil {
-  background: radial-gradient(ellipse 70% 52% at 50% 50%, rgba(250, 248, 245, 0.72) 0%, rgba(250, 248, 245, 0.06) 100%);
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  z-index: 1;
-}
-
+.spa-v4.light-theme .intro-bg .veil,
 .spa-v4.light-theme .callout .veil {
   background: none;
   backdrop-filter: none;
@@ -2961,15 +2955,15 @@ body.light-theme {
 }
 
 .spa-v4.light-theme .editorial .num {
-  color: #8B6914;
+  color: rgba(201, 168, 76, 0.90);
 }
 
 .spa-v4.light-theme .editorial .big {
-  color: #1E1A17;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .spa-v4.light-theme .editorial .sig {
-  color: #8B6914;
+  color: rgba(201, 168, 76, 0.85);
 }
 
 /* ── Intro quote ── */
@@ -2979,16 +2973,16 @@ body.light-theme {
 }
 
 .spa-v4.light-theme .intro-bg::after {
-  background: linear-gradient(180deg, #FAF8F5 0%, rgba(250, 248, 245, 0) 22%, rgba(250, 248, 245, 0) 78%, #FAF8F5 100%);
+  background: linear-gradient(180deg, rgba(250, 248, 245, 0.96) 0%, transparent 20%, transparent 80%, rgba(250, 248, 245, 0.96) 100%);
 }
 
 .spa-v4.light-theme .intro-mark {
-  color: #8B6914;
-  opacity: 0.22;
+  color: rgba(255, 255, 255, 0.90);
+  opacity: 0.30;
 }
 
 .spa-v4.light-theme .intro-quote {
-  color: #1E1A17;
+  color: rgba(255, 255, 255, 0.92);
 }
 
 /* ── Service cards ── */
@@ -3415,9 +3409,7 @@ body.light-theme {
 }
 
 .spa-v4.light-theme .callout::before {
-  background:
-    radial-gradient(ellipse 90% 70% at 50% 50%, rgba(250, 248, 245, 0.90) 0%, rgba(250, 248, 245, 0.36) 80%),
-    linear-gradient(180deg, #FAF8F5 0%, transparent 18%, transparent 82%, #FAF8F5 100%);
+  background: linear-gradient(180deg, rgba(250, 248, 245, 0.96) 0%, transparent 18%, transparent 82%, rgba(250, 248, 245, 0.96) 100%);
 }
 
 .spa-v4.light-theme .callout .eyebrow-mini {
@@ -3425,23 +3417,23 @@ body.light-theme {
 }
 
 .spa-v4.light-theme .callout h2 {
-  color: #1E1A17;
+  color: rgba(255, 255, 255, 0.96);
 }
 
 .spa-v4.light-theme .callout .phone-cta .lab {
-  color: #8B6914;
+  color: rgba(201, 168, 76, 0.90);
 }
 
 .spa-v4.light-theme .callout .phone-cta .num {
-  color: #1E1A17;
+  color: rgba(255, 255, 255, 0.96);
 }
 
 .spa-v4.light-theme .callout .meta {
-  color: #544A47;
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .spa-v4.light-theme .callout .meta .dot {
-  background: #8B6914;
+  background: rgba(201, 168, 76, 0.80);
 }
 
 /* ── FAQ ── */
