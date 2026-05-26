@@ -2710,17 +2710,17 @@ body.light-theme {
 /* ── Core design tokens ── */
 .spa-v4.light-theme {
   --obsidian: #FAF8F5;
-  --obsidian-2: #F3ECE2;
+  --obsidian-2: #EDD9A8;
   --card: #FFFFFF;
-  --card-2: #FBF9F4;
+  --card-2: #FBF6E8;
   --ivory: #1E1A17;
   --ivory-dim: #4A403C;
   --muted: #675A55;
-  --line: rgba(139, 105, 20, 0.22);
-  --line-strong: rgba(139, 105, 20, 0.48);
+  --line: rgba(139, 105, 20, 0.35);
+  --line-strong: rgba(139, 105, 20, 0.72);
   background:
-    radial-gradient(1000px 560px at 50% 0%, rgba(201, 168, 76, 0.11), transparent 68%),
-    linear-gradient(180deg, #FAF8F5 0%, #F7F2EA 52%, #FAF8F5 100%);
+    radial-gradient(1100px 620px at 50% 0%, rgba(185, 148, 25, 0.22), transparent 68%),
+    linear-gradient(180deg, #FAF8F5 0%, #F2E9D2 52%, #FAF8F5 100%);
   color: #1E1A17;
 }
 
@@ -2856,7 +2856,7 @@ body.light-theme {
 .spa-v4.light-theme .hero-ornament .line,
 .spa-v4.light-theme .ornament-line .line,
 .spa-v4.light-theme .intro-flourish .line {
-  background: rgba(139, 105, 20, 0.48);
+  background: rgba(139, 105, 20, 0.80);
 }
 
 .spa-v4.light-theme .hero-ornament .dot,
@@ -2888,17 +2888,17 @@ body.light-theme {
 
 /* ── Marquee ── */
 .spa-v4.light-theme .marquee {
-  background: #F3ECE2;
-  border-top-color: rgba(139, 105, 20, 0.12);
-  border-bottom-color: rgba(139, 105, 20, 0.12);
+  background: linear-gradient(90deg, #E8D498, #D9BF6A, #E8D498);
+  border-top-color: rgba(139, 105, 20, 0.30);
+  border-bottom-color: rgba(139, 105, 20, 0.30);
 }
 
 .spa-v4.light-theme .marquee .track {
-  color: #8B6914;
+  color: #6B5008;
 }
 
 .spa-v4.light-theme .marquee .star {
-  color: #C9A84C;
+  color: #8B6914;
 }
 
 /* ── Section heads ── */
@@ -2908,8 +2908,8 @@ body.light-theme {
 
 .spa-v4.light-theme .section-head .eyebrow-row::before,
 .spa-v4.light-theme .section-head .eyebrow-row::after {
-  background: #8B6914;
-  opacity: 0.45;
+  background: #9A7210;
+  opacity: 1;
 }
 
 .spa-v4.light-theme .section-head .lede {
@@ -2917,7 +2917,7 @@ body.light-theme {
 }
 
 .spa-v4.light-theme .eyebrow {
-  color: #8B6914;
+  color: #9A7210;
 }
 
 .spa-v4.light-theme .section-head h2 em,
@@ -3056,11 +3056,11 @@ body.light-theme {
 }
 
 .spa-v4.light-theme .card-price {
-  color: #8B6914;
+  color: #9A7210;
 }
 
 .spa-v4.light-theme .card-price .small {
-  color: #8B6914;
+  color: #9A7210;
 }
 
 .spa-v4.light-theme .durations {
@@ -3238,7 +3238,7 @@ body.light-theme {
 
 /* ── Testimonials ── */
 .spa-v4.light-theme .testimonials {
-  background: linear-gradient(180deg, #F5EFE3 0%, #FAF8F5 100%);
+  background: linear-gradient(180deg, #EFE3C0 0%, #FAF8F5 100%);
 }
 
 .spa-v4.light-theme .testimonial-card {
@@ -3277,13 +3277,13 @@ body.light-theme {
 
 /* ── Membership ── */
 .spa-v4.light-theme .membership-wrap {
-  border-color: rgba(139, 105, 20, 0.28);
-  background: linear-gradient(180deg, #FCFAF6 0%, #F1E7DA 100%);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75), 0 24px 70px rgba(139, 105, 20, 0.045);
+  border-color: rgba(139, 105, 20, 0.45);
+  background: linear-gradient(180deg, #F8EDCC 0%, #EDD088 35%, #F3E4B5 70%, #F9EECC 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 240, 160, 0.60), 0 24px 70px rgba(139, 105, 20, 0.08);
 }
 
 .spa-v4.light-theme .membership-wrap::after {
-  background: radial-gradient(700px 400px at 50% -10%, rgba(139, 105, 20, 0.18), transparent 60%);
+  background: radial-gradient(700px 400px at 50% -10%, rgba(139, 105, 20, 0.22), transparent 60%);
 }
 
 .spa-v4.light-theme .tier {
@@ -3310,20 +3310,20 @@ body.light-theme {
 }
 
 .spa-v4.light-theme .tier-eyebrow {
-  color: #8B6914;
+  color: #9A7210;
 }
 
 .spa-v4.light-theme .tier-divider {
-  background: #8B6914;
-  opacity: 0.45;
+  background: #9A7210;
+  opacity: 0.80;
 }
 
 .spa-v4.light-theme .tier-price {
-  color: #8B6914;
+  color: #9A7210;
 }
 
 .spa-v4.light-theme .tier-price .ru {
-  color: #8B6914;
+  color: #9A7210;
 }
 
 .spa-v4.light-theme .tier-sessions {
@@ -3366,8 +3366,8 @@ body.light-theme {
 
 /* ── Gift vouchers ── */
 .spa-v4.light-theme .gift-section {
-  background: linear-gradient(180deg, #FAF8F5 0%, #F5EFE3 40%, #FAF8F5 100%);
-  border-top-color: rgba(139, 105, 20, 0.22);
+  background: linear-gradient(180deg, #FAF8F5 0%, #EDE0B0 40%, #FAF8F5 100%);
+  border-top-color: rgba(139, 105, 20, 0.35);
 }
 
 .spa-v4.light-theme .gift-copy h2 {
@@ -3607,26 +3607,13 @@ body.light-theme {
 
 /* ── Section surface hierarchy ── */
 .spa-v4.light-theme #signature {
-  background: linear-gradient(180deg, #F5EFE3 0%, #FAF8F5 100%);
+  background: linear-gradient(180deg, #EFE3C0 0%, #FAF8F5 100%);
 }
 
 .spa-v4.light-theme .section.section-faq {
-  background: linear-gradient(180deg, #FAF8F5 0%, #F5EFE3 60%, #FAF8F5 100%);
+  background: linear-gradient(180deg, #FAF8F5 0%, #EFE3C0 60%, #FAF8F5 100%);
 }
 
-/* ── Eyebrow rows gold accent ── */
-.spa-v4.light-theme .section-head .eyebrow-row::before,
-.spa-v4.light-theme .section-head .eyebrow-row::after {
-  background: #8B6914;
-  opacity: 0.55;
-}
-
-/* ── Gold marquee border enhancement ── */
-.spa-v4.light-theme .marquee {
-  background: #EDE3D6;
-  border-top-color: rgba(139, 105, 20, 0.18);
-  border-bottom-color: rgba(139, 105, 20, 0.18);
-}
 
 /* ── Tier crest gold glow ── */
 .spa-v4.light-theme .tier .crest {
