@@ -283,7 +283,7 @@ html.lenis {
 }
 
 .spa-v4 .nav-links a {
-  color: var(--ivory-dim);
+  color: rgba(250, 248, 245, 0.88);
   font-size: 11px;
   letter-spacing: 0.32em;
   text-transform: uppercase;
@@ -763,7 +763,7 @@ html.lenis {
 
 .spa-v4 .h-line .inner {
   display: inline-block;
-  transform: translateY(0);
+  transform: translateY(100%);
   transition: transform 1.2s var(--easing);
 }
 
@@ -934,6 +934,8 @@ html.lenis {
   border: 1px solid rgba(212, 175, 85, 0.16);
   background: #0d0a08;
   transition: transform .6s var(--easing), border-color .6s ease, box-shadow .6s ease;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  isolation: isolate;
 }
 
 .spa-v4 .card-visual .img {
@@ -965,7 +967,8 @@ html.lenis {
 
 .spa-v4 .card-visual .label {
   position: absolute;
-  left: 24px;
+  left: 50%;
+  transform: translateX(-50%);
   top: 24px;
   z-index: 2;
   font-size: 11px;
@@ -1413,7 +1416,7 @@ html.lenis {
 .spa-v4 .editorial .photo,
 .spa-v4 .callout .photo {
   position: absolute;
-  inset: -10%;
+  inset: -120px 0;
   background-size: cover;
   background-position: center;
   filter: brightness(0.55) contrast(1.06) saturate(0.88);
@@ -1535,6 +1538,8 @@ html.lenis {
   flex-direction: column;
   opacity: 1;
   transition: opacity 1s ease, border-color .5s ease, transform .6s ease, background .5s ease;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  isolation: isolate;
 }
 
 .spa-v4 .tier.in {
@@ -1811,6 +1816,8 @@ html.lenis {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   transition: border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  isolation: isolate;
 }
 
 .spa-v4 .testimonial-card:hover {
@@ -2755,7 +2762,7 @@ body.light-theme {
 }
 
 .spa-v4.light-theme .nav-links a {
-  color: #544A47;
+  color: rgba(30, 26, 23, 0.88);
 }
 
 .spa-v4.light-theme .nav-links a:hover {
@@ -2789,17 +2796,17 @@ body.light-theme {
 
 /* ── Hero ── */
 .spa-v4.light-theme .hero-bg .photo {
-  filter: brightness(0.98) contrast(1.08) saturate(0.96) sepia(0.03);
+  filter: brightness(0.85) contrast(1.05) saturate(0.90) sepia(0.04);
 }
 
 .spa-v4.light-theme .hero-bg::before {
   background:
-    radial-gradient(900px 700px at 50% 35%, rgba(139, 105, 20, 0.08), transparent 60%),
-    radial-gradient(1200px 800px at 50% 100%, rgba(250, 248, 245, 0.78), transparent 70%),
+    radial-gradient(900px 700px at 50% 35%, rgba(139, 105, 20, 0.05), transparent 60%),
+    radial-gradient(1200px 800px at 50% 100%, rgba(250, 248, 245, 0.65), transparent 75%),
     linear-gradient(180deg,
-      rgba(250, 248, 245, 0.08) 0%,
-      rgba(250, 248, 245, 0.26) 52%,
-      rgba(250, 248, 245, 0.82) 100%);
+      rgba(250, 248, 245, 0.05) 0%,
+      rgba(250, 248, 245, 0.15) 52%,
+      rgba(250, 248, 245, 0.90) 100%);
 }
 
 .spa-v4.light-theme .hero-bg::after {
@@ -2807,26 +2814,23 @@ body.light-theme {
 }
 
 .spa-v4.light-theme .hero h1 .word .inner {
-  background: linear-gradient(100deg,
-    #17120F 0%, #17120F 30%,
-    #8B6914 46%, #C9A84C 54%,
-    #17120F 70%, #17120F 100%);
-  background-size: 300% 100%;
-  background-position: 120% 0;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  animation: spaWordRise 1.4s var(--easing) forwards, spaShimmer 7s ease-in-out 2.2s infinite;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: #1E1A17 !important;
+  color: #1E1A17 !important;
+  animation: spaWordRise 1.4s var(--easing) forwards !important;
 }
 
 .spa-v4.light-theme .hero h1 .word.italic .inner {
-  background: linear-gradient(100deg, #8B6914, #C9A84C, #8B6914);
-  background-size: 300% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-style: italic;
+  background: linear-gradient(100deg, #8B6914 0%, #C9A84C 50%, #8B6914 100%) !important;
+  background-size: 200% auto !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  font-style: italic !important;
+  animation: spaWordRise 1.4s var(--easing) forwards, goldShimmer 7s linear infinite !important;
 }
 
 .spa-v4.light-theme .hero-sub {
@@ -2935,19 +2939,22 @@ body.light-theme {
 
 /* ── Editorial ── */
 .spa-v4.light-theme .editorial .photo {
-  filter: brightness(0.94) contrast(1.08) saturate(0.96) sepia(0.025);
+  filter: brightness(0.92) contrast(1.06) saturate(0.94) sepia(0.02);
 }
 
 .spa-v4.light-theme .editorial::after {
   background:
-    linear-gradient(180deg, #FAF8F5 0%, rgba(250, 248, 245, 0.18) 20%, rgba(250, 248, 245, 0.18) 80%, #FAF8F5 100%),
-    linear-gradient(90deg, rgba(250, 248, 245, 0.48), transparent 42%, rgba(250, 248, 245, 0.5));
+    linear-gradient(180deg, #FAF8F5 0%, rgba(250, 248, 245, 0) 20%, rgba(250, 248, 245, 0) 80%, #FAF8F5 100%),
+    linear-gradient(90deg, rgba(250, 248, 245, 0.12), transparent 45%, rgba(250, 248, 245, 0.12));
 }
 
-.spa-v4.light-theme .editorial .veil {
-  background: rgba(250, 248, 245, 0.44);
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
+.spa-v4.light-theme .editorial .veil,
+.spa-v4.light-theme .intro-bg .veil,
+.spa-v4.light-theme .callout .veil {
+  background: rgba(250, 248, 245, 0.20);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  z-index: 1;
 }
 
 .spa-v4.light-theme .editorial .num {
@@ -2964,14 +2971,14 @@ body.light-theme {
 
 /* ── Intro quote ── */
 .spa-v4.light-theme .intro-bg .photo {
-  filter: brightness(1.0) contrast(1.01) saturate(0.9) sepia(0.04);
+  filter: brightness(0.92) contrast(1.05) saturate(0.92) sepia(0.03);
   opacity: 1;
 }
 
 .spa-v4.light-theme .intro-bg::after {
   background:
-    radial-gradient(ellipse at center, transparent 0%, rgba(250, 248, 245, 0.80) 52%, #FAF8F5 100%),
-    linear-gradient(180deg, #FAF8F5 0%, transparent 18%, transparent 82%, #FAF8F5 100%);
+    linear-gradient(180deg, #FAF8F5 0%, rgba(250, 248, 245, 0) 20%, rgba(250, 248, 245, 0) 80%, #FAF8F5 100%),
+    linear-gradient(90deg, rgba(250, 248, 245, 0.12), transparent 45%, rgba(250, 248, 245, 0.12));
 }
 
 .spa-v4.light-theme .intro-mark {
@@ -3096,13 +3103,13 @@ body.light-theme {
 }
 
 .spa-v4.light-theme .card-book {
-  border-bottom-color: rgba(139, 105, 20, 0.38);
+  border-bottom-color: rgba(139, 105, 20, 0.48);
   color: #8B6914;
 }
 
 .spa-v4.light-theme .card-book:hover {
-  color: #684B0A;
-  border-bottom-color: #684B0A;
+  color: #C9A84C;
+  border-bottom-color: #C9A84C;
 }
 
 .spa-v4.light-theme .reply-note {
@@ -3396,19 +3403,13 @@ body.light-theme {
 
 /* ── Callout / Book section ── */
 .spa-v4.light-theme .callout .photo {
-  filter: brightness(0.9) contrast(1.09) saturate(0.94) sepia(0.025);
+  filter: brightness(0.91) contrast(1.08) saturate(0.92) sepia(0.02);
 }
 
 .spa-v4.light-theme .callout::before {
   background:
-    radial-gradient(800px 600px at 50% 50%, rgba(250, 248, 245, 0.22), rgba(250, 248, 245, 0.74) 78%),
-    linear-gradient(180deg, #FAF8F5 0%, transparent 14%, transparent 86%, #FAF8F5 100%);
-}
-
-.spa-v4.light-theme .callout .veil {
-  background: rgba(250, 248, 245, 0.48);
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
+    linear-gradient(180deg, #FAF8F5 0%, rgba(250, 248, 245, 0) 20%, rgba(250, 248, 245, 0) 80%, #FAF8F5 100%),
+    linear-gradient(90deg, rgba(250, 248, 245, 0.12), transparent 45%, rgba(250, 248, 245, 0.12));
 }
 
 .spa-v4.light-theme .callout .eyebrow-mini {
@@ -3604,5 +3605,11 @@ body.light-theme {
   .spa-v4.light-theme .nav.scrolled {
     background: linear-gradient(180deg, rgba(250, 248, 245, 0.78) 0%, transparent 100%);
     box-shadow: none;
+  }
+}
+
+@media (max-height: 840px) {
+  .spa-v4 .hero-scroll {
+    display: none !important;
   }
 }

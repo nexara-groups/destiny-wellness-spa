@@ -1,7 +1,7 @@
 export const SITE = {
   name: 'Destiny Wellness & Spa',
   tagline: 'Silence, four floors up.',
-  subTagline: 'Crafted for those who have everything except rest.',
+  subTagline: 'One hour here earns you back the rest of the week.',
   phone: '7673 996 993',
   whatsappNumber: '917673996993',
   address: {
@@ -21,7 +21,7 @@ export const WHATSAPP_BOOKING = getWhatsAppUrl(
 );
 
 export const WHATSAPP_GIFT = getWhatsAppUrl(
-  "Hi, I'd like to inquire about a gift voucher at Destiny Wellness & Spa."
+  "Hi, I'd like to send a gift voucher from Destiny Wellness & Spa."
 );
 
 export const WHATSAPP_MEMBERSHIP = getWhatsAppUrl(
@@ -98,7 +98,7 @@ export const SERVICES: Service[] = [
         'First-time spa visitors who prefer gentle pressure',
       ],
       benefits: [
-        'Creates a calm, restful atmosphere',
+        'Within ten minutes the nervous system genuinely quiets — not just relaxes',
         'Leaves the skin feeling nourished and lightly scented',
         'The scent stays with you — quiet, not overpowering. Most guests sleep better the same night.',
       ],

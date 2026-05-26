@@ -12,6 +12,7 @@ import {
   getWhatsAppUrl,
   type Service,
 } from '@/constants/site';
+import { useLenis } from '@/lib/lenis-context';
 
 const ROMAN = ['I', 'II', 'III', 'IV'];
 
@@ -34,7 +35,7 @@ const SERVICE_META: Record<
     section: 'therapies',
   },
   'hot-candle': {
-    kicker: 'No. 03 · Wax',
+    kicker: 'No. 03 · Candle Oil',
     ordinal: 'iii',
     imageClass: 'img-candle',
     subtitle: 'Soy Wax · Warmth Therapy',
@@ -51,7 +52,7 @@ const SERVICE_META: Record<
     kicker: 'No. 05 · Bespoke',
     ordinal: 'v',
     imageClass: 'img-signature',
-    subtitle: 'Bespoke · House Method',
+    subtitle: 'Tailored · House Method',
     section: 'signature',
   },
 };
@@ -217,7 +218,7 @@ function ServiceDetailModal({
         </div>
 
         <div className="service-modal-copy">
-          <p className="service-modal-kicker">Treatment Review</p>
+          <p className="service-modal-kicker">About This Ritual</p>
           <h3 id="service-modal-title">{service.name}</h3>
           <p className="service-modal-sub">{meta.subtitle}</p>
           <p className="service-modal-review">{service.detail.feel}</p>
@@ -268,7 +269,7 @@ function ServiceDetailModal({
               Book this treatment
             </a>
             <button type="button" onClick={onClose}>
-              Continue reviewing
+              Keep browsing
             </button>
           </div>
         </div>
@@ -281,17 +282,44 @@ export default function DestinyV4Page() {
   const [reviewService, setReviewService] = useState<Service | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isLightMode, setIsLightMode] = useState(false);
+  const lenis = useLenis();
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('destiny-theme');
+    if (savedTheme === 'light') {
+      setIsLightMode(true);
+    }
+  }, []);
 
   useEffect(() => {
     if (isLightMode) {
       document.body.classList.add('light-theme');
+      localStorage.setItem('destiny-theme', 'light');
     } else {
       document.body.classList.remove('light-theme');
+      localStorage.setItem('destiny-theme', 'dark');
     }
     return () => {
       document.body.classList.remove('light-theme');
     };
   }, [isLightMode]);
+
+  useEffect(() => {
+    if (!lenis) return;
+    const handleAnchorClick = (e: MouseEvent) => {
+      const anchor = (e.target as HTMLElement).closest<HTMLAnchorElement>('a[href^="#"]');
+      if (!anchor) return;
+      const hash = anchor.getAttribute('href');
+      if (!hash || hash === '#') return;
+      const el = document.querySelector(hash);
+      if (!el) return;
+      e.preventDefault();
+      lenis.scrollTo(el as HTMLElement, { offset: -72 });
+    };
+    document.addEventListener('click', handleAnchorClick);
+    return () => document.removeEventListener('click', handleAnchorClick);
+  }, [lenis]);
+
   const therapies = useMemo(
     () => SERVICES.filter((service) => SERVICE_META[service.id]?.section === 'therapies'),
     []
@@ -339,7 +367,7 @@ export default function DestinyV4Page() {
           }
         });
       },
-      { threshold: 0.12, rootMargin: '0px 0px -70px 0px' }
+      { threshold: 0.12, rootMargin: '0px 0px -20px 0px' }
     );
 
     document
@@ -368,6 +396,11 @@ export default function DestinyV4Page() {
         if (heroBg && supportsHover) {
           heroBg.style.transform = `scale(${1 + progress * 0.12}) translateY(${progress * 24}px)`;
         }
+        document.querySelectorAll('.hero-meta, .hero-scroll').forEach((element) => {
+          if (element instanceof HTMLElement) {
+            element.style.setProperty('opacity', String(Math.max(0, 1 - progress * 2.0)), 'important');
+          }
+        });
 
         if (supportsHover) {
           document.querySelectorAll<HTMLElement>('.parallax-img, .parallax-veil').forEach((element) => {
@@ -601,8 +634,8 @@ export default function DestinyV4Page() {
       </div>
 
       <section className="editorial var-pause reveal">
-        <div className="photo parallax-img" data-speed="1.8" role="img" aria-label="Relaxing aromatic steam therapy scene" />
-        <div className="veil parallax-veil" data-speed="-0.8" />
+        <div className="photo parallax-img" data-speed="0.4" role="img" aria-label="Relaxing aromatic steam therapy scene" />
+        <div className="veil parallax-veil" data-speed="-0.15" />
         <div className="editorial-content">
           <div className="num">— Pause —</div>
           <div className="big">
@@ -639,8 +672,8 @@ export default function DestinyV4Page() {
       </section>
 
       <section className="editorial reveal">
-        <div className="photo parallax-img" data-speed="1.6" role="img" aria-label="Luxury thermal massage stone setup" />
-        <div className="veil parallax-veil" data-speed="-0.6" />
+        <div className="photo parallax-img" data-speed="0.3" role="img" aria-label="Luxury thermal massage stone setup" />
+        <div className="veil parallax-veil" data-speed="-0.1" />
         <div className="editorial-content">
           <div className="num">— Interlude —</div>
           <div className="big">
@@ -679,6 +712,7 @@ export default function DestinyV4Page() {
       <section className="intro reveal">
         <div className="intro-bg">
           <div className="photo parallax-img" data-speed="0.4" role="img" aria-label="Therapeutic warm oil pouring treatment" />
+          <div className="veil parallax-veil" data-speed="-0.15" />
         </div>
         <span className="intro-mark">&ldquo;</span>
         <p className="intro-quote">
@@ -698,7 +732,7 @@ export default function DestinyV4Page() {
         </div>
       </section>
 
-      <section className="testimonials reveal">
+      <section className="testimonials">
         <div className="section-head reveal">
           <div className="ornament-line">
             <span className="line" />
@@ -749,7 +783,7 @@ export default function DestinyV4Page() {
             eyebrow="III — Membership"
             lineOne="Become a"
             emphasis="member"
-            lede="Members pay between ₹1,250 and ₹1,667 per session — less than most Vizag salons charge for a haircut. Steam with every Gold session, priority slots, and a guest pass each quarter."
+            lede="Members pay between ₹1,250 and ₹1,667 per session — less than most Vizag salons charge for a haircut. Steam included from Gold, priority scheduling, and dedicated WhatsApp access at Diamond."
           />
           <div className="tiers">
             {MEMBERSHIPS.map((membership, index) => (
@@ -826,8 +860,8 @@ export default function DestinyV4Page() {
       </section>
 
       <section className="callout reveal">
-        <div className="photo parallax-img" data-speed="1.8" role="img" aria-label="Tranquil wellness relaxation room" />
-        <div className="veil parallax-veil" data-speed="-0.7" />
+        <div className="photo parallax-img" data-speed="0.4" role="img" aria-label="Tranquil wellness relaxation room" />
+        <div className="veil parallax-veil" data-speed="-0.15" />
         <div className="callout-content">
           <div className="eyebrow-mini">— By appointment —</div>
           <h2>

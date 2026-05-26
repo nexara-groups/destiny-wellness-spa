@@ -1,9 +1,12 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Lenis from 'lenis';
 import { ScrollTrigger } from '@/lib/gsap';
+import { LenisContext } from '@/lib/lenis-context';
 
 export default function LenisProvider({ children }: { children: React.ReactNode }) {
+  const [lenisInstance, setLenisInstance] = useState<Lenis | null>(null);
+
   useEffect(() => {
     const isTouchDevice = window.matchMedia('(hover: none)').matches;
     if (isTouchDevice) return;
@@ -15,6 +18,7 @@ export default function LenisProvider({ children }: { children: React.ReactNode 
       smoothWheel: true,
     });
 
+    setLenisInstance(lenis);
     lenis.on('scroll', ScrollTrigger.update);
 
     function raf(time: number) {
@@ -25,8 +29,9 @@ export default function LenisProvider({ children }: { children: React.ReactNode 
 
     return () => {
       lenis.destroy();
+      setLenisInstance(null);
     };
   }, []);
 
-  return <>{children}</>;
+  return <LenisContext.Provider value={lenisInstance}>{children}</LenisContext.Provider>;
 }
