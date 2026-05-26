@@ -2979,7 +2979,7 @@ body.light-theme {
 }
 
 .spa-v4.light-theme .intro-bg::after {
-  background: linear-gradient(180deg, rgba(250, 248, 245, 0.96) 0%, transparent 18%);
+  background: linear-gradient(180deg, rgba(250, 248, 245, 0.96) 0%, rgba(250, 248, 245, 0.20) 18%, rgba(250, 248, 245, 0.20) 100%);
 }
 
 .spa-v4.light-theme .intro-mark {
