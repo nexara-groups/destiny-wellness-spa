@@ -2431,7 +2431,8 @@ body.loaded .spa-v4 .chapter-rail {
   background: var(--gold);
 }
 
-.spa-v4 .chapter-rail a:hover .lbl {
+.spa-v4 .chapter-rail a:hover .lbl,
+.spa-v4 .chapter-rail a.active .lbl {
   opacity: 1;
   transform: translateX(0);
 }
