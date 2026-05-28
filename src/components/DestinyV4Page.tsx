@@ -128,56 +128,52 @@ function ServiceCard({
 
   return (
     <article className={`card ${delayClass}`} data-card>
-      <div className="card-visual">
-        <div
-          className={`img ${meta.imageClass} parallax-img`}
-          role="img"
-          aria-label={`Cinematic view of our ${service.name}`}
-        />
-        <div className="ordinal">{meta.ordinal}</div>
-      </div>
-      <div className="card-body-wrap">
-        <div className="card-header">
-          <div>
-            <h3 className="card-title">{service.name}</h3>
-            <div className="card-title-sub">{meta.subtitle}</div>
-          </div>
+      <div
+        className={`img ${meta.imageClass} parallax-img`}
+        role="img"
+        aria-label={`Cinematic view of our ${service.name}`}
+      />
+      <div className="card-ordinal">{meta.ordinal}</div>
+      <div className="card-overlay">
+        <div className="card-tier">{meta.subtitle}</div>
+        <h3 className="card-title">{service.name}</h3>
+        <div className="card-expand">
+          <p className="card-body">{service.description}</p>
           <div className="card-price">
             <span className="small">₹</span>
             <span>{formatPrice(price)}</span>
           </div>
-        </div>
-        <p className="card-body">{service.description}</p>
-        <div className="durations" aria-label={`${service.name} duration`}>
-          {service.durations.map((duration, index) => (
-            <button
-              key={duration.mins}
-              type="button"
-              className={selected === index ? 'active' : undefined}
-              onClick={() => setSelected(index)}
-            >
-              {duration.mins} min
+          <div className="durations" aria-label={`${service.name} duration`}>
+            {service.durations.map((duration, index) => (
+              <button
+                key={duration.mins}
+                type="button"
+                className={selected === index ? 'active' : undefined}
+                onClick={() => setSelected(index)}
+              >
+                {duration.mins} min
+              </button>
+            ))}
+          </div>
+          <div className="steam-tag">
+            <span className="pulse" /> + Steam Bath · ₹{STEAM_BATH_ADDON}
+          </div>
+          <div className="card-actions">
+            <button type="button" className="card-review" onClick={() => onReview(service)}>
+              Review in detail
             </button>
-          ))}
-        </div>
-        <div className="steam-tag">
-          <span className="pulse" /> + Steam Bath · ₹{STEAM_BATH_ADDON}
-        </div>
-        <div className="card-actions">
-          <button type="button" className="card-review" onClick={() => onReview(service)}>
-            Review in detail
-          </button>
-          <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
-            <a
-              className="card-book"
-              href={getWhatsAppUrl(`Hi, I'd like to book ${service.name} at Destiny Wellness & Spa.`)}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Book ${service.name} on WhatsApp`}
-            >
-              Reserve this ritual
-            </a>
-            <span className="reply-note">Replies within 30 min · 10 AM–10 PM</span>
+            <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+              <a
+                className="card-book"
+                href={getWhatsAppUrl(`Hi, I'd like to book ${service.name} at Destiny Wellness & Spa.`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Book ${service.name} on WhatsApp`}
+              >
+                Reserve this ritual
+              </a>
+              <span className="reply-note">Replies within 30 min · 10 AM–10 PM</span>
+            </div>
           </div>
         </div>
       </div>
@@ -215,7 +211,7 @@ function ServiceDetailModal({
           />
         </div>
 
-        <div className="service-modal-copy">
+        <div className="service-modal-copy" data-lenis-prevent>
           <p className="service-modal-kicker">About This Ritual</p>
           <h3 id="service-modal-title">{service.name}</h3>
           <p className="service-modal-sub">{meta.subtitle}</p>
@@ -511,6 +507,9 @@ export default function DestinyV4Page() {
             <a href="#membership">Membership</a>
           </li>
           <li>
+            <a href="#gift">Gift</a>
+          </li>
+          <li>
             <a href="#contact">Reserve</a>
           </li>
         </ul>
@@ -552,6 +551,7 @@ export default function DestinyV4Page() {
             <a href="#therapies" onClick={() => setMobileMenuOpen(false)}>Therapies</a>
             <a href="#signature" onClick={() => setMobileMenuOpen(false)}>Signature</a>
             <a href="#membership" onClick={() => setMobileMenuOpen(false)}>Membership</a>
+            <a href="#gift" onClick={() => setMobileMenuOpen(false)}>Gift</a>
             <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Reserve</a>
           </nav>
           <div className="mobile-drawer-ornament" aria-hidden="true" />
@@ -676,11 +676,11 @@ export default function DestinyV4Page() {
           <div className="num">— Interlude —</div>
           <div className="big">
             <span className="h-line">
-              <span className="inner">Most treatments ease the body.</span>
+              <span className="inner">Some guests come for relief.</span>
             </span>
             <span className="h-line">
               <span className="inner">
-                These were composed for <em>something quieter.</em>
+                These are for those who want <em>something more.</em>
               </span>
             </span>
           </div>
@@ -730,6 +730,85 @@ export default function DestinyV4Page() {
         </div>
       </section>
 
+      <section className="section" id="membership">
+        <div className="membership-wrap">
+          <SectionHeading
+            eyebrow="III — Membership"
+            lineOne="Become a"
+            emphasis="member"
+            lede="Members pay between ₹1,250 and ₹1,667 per session — less than most Vizag salons charge for a haircut. Steam included from Gold, priority scheduling, and dedicated WhatsApp access at Diamond."
+          />
+          <div className="tiers">
+            {MEMBERSHIPS.map((membership, index) => (
+              <a
+                key={membership.id}
+                className={`tier t${index + 1}`}
+                href={membership.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Enquire about ${membership.name} membership`}
+              >
+                {membership.badge && (
+                  <div className={`tier-badge tier-badge-${membership.badge.variant}`}>
+                    {membership.badge.text}
+                  </div>
+                )}
+                <div className="crest">
+                  <span>{ROMAN[index]}</span>
+                </div>
+                <div className="tier-name">{membership.name}</div>
+                <div className="tier-eyebrow">Tier {ROMAN[index]}</div>
+                <div className="tier-divider" />
+                <div className="tier-price">
+                  <span className="ru">₹</span>
+                  {formatPrice(membership.price)}
+                </div>
+                <div className="tier-sessions">
+                  <strong>{membership.sessions}</strong> Sessions
+                </div>
+                <ul className="tier-benefits">
+                  {membership.benefits.slice(0, 2).map((benefit) => (
+                    <li key={benefit}>{benefit}</li>
+                  ))}
+                </ul>
+                <div className="tier-persession">
+                  ₹{formatPrice(Math.round(membership.price / membership.sessions))} per visit
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="callout reveal">
+        <div className="photo parallax-img" data-speed="0.4" role="img" aria-label="Tranquil wellness relaxation room" />
+        <div className="veil parallax-veil" data-speed="-0.15" />
+        <div className="callout-content">
+          <div className="eyebrow-mini">— By appointment —</div>
+          <h2>
+            <span className="h-line">
+              <span className="inner">Reserve</span>
+            </span>
+            <span className="h-line">
+              <span className="inner">
+                your <em>ritual</em>.
+              </span>
+            </span>
+          </h2>
+          <div className="phone-cta">
+            <span className="lab">CALL US</span>
+            <a className="num" href={`tel:+91${SITE.phone.replace(/\s/g, '')}`}>
+              {SITE.phone}
+            </a>
+          </div>
+          <div className="meta">
+            <span>OPEN DAILY · 10:00 — 22:00</span>
+            <span className="dot" />
+            <span>MADHURAWADA, VISAKHAPATNAM.</span>
+          </div>
+        </div>
+      </section>
+
       <section className="testimonials">
         <div className="section-head reveal">
           <div className="ornament-line">
@@ -775,56 +854,6 @@ export default function DestinyV4Page() {
         </div>
       </section>
 
-      <section className="section" id="membership">
-        <div className="membership-wrap">
-          <SectionHeading
-            eyebrow="III — Membership"
-            lineOne="Become a"
-            emphasis="member"
-            lede="Members pay between ₹1,250 and ₹1,667 per session — less than most Vizag salons charge for a haircut. Steam included from Gold, priority scheduling, and dedicated WhatsApp access at Diamond."
-          />
-          <div className="tiers">
-            {MEMBERSHIPS.map((membership, index) => (
-              <a
-                key={membership.id}
-                className={`tier t${index + 1}`}
-                href={WHATSAPP_MEMBERSHIP}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Enquire about ${membership.name} membership`}
-              >
-                {membership.badge && (
-                  <div className={`tier-badge tier-badge-${membership.badge.variant}`}>
-                    {membership.badge.text}
-                  </div>
-                )}
-                <div className="crest">
-                  <span>{ROMAN[index]}</span>
-                </div>
-                <div className="tier-name">{membership.name}</div>
-                <div className="tier-eyebrow">Tier {ROMAN[index]}</div>
-                <div className="tier-divider" />
-                <div className="tier-price">
-                  <span className="ru">₹</span>
-                  {formatPrice(membership.price)}
-                </div>
-                <div className="tier-sessions">
-                  <strong>{membership.sessions}</strong> Sessions
-                </div>
-                <ul className="tier-benefits">
-                  {membership.benefits.slice(0, 2).map((benefit) => (
-                    <li key={benefit}>{benefit}</li>
-                  ))}
-                </ul>
-                <div className="tier-persession">
-                  ₹{formatPrice(Math.round(membership.price / membership.sessions))} per visit
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="gift-section reveal" id="gift">
         <div className="gift-inner">
           <div className="gift-copy">
@@ -853,35 +882,6 @@ export default function DestinyV4Page() {
               <span className="gift-label">Couple or extended</span>
             </div>
             <p className="gift-note">Valid 6 months from date of purchase. Any treatment, any duration.</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="callout reveal">
-        <div className="photo parallax-img" data-speed="0.4" role="img" aria-label="Tranquil wellness relaxation room" />
-        <div className="veil parallax-veil" data-speed="-0.15" />
-        <div className="callout-content">
-          <div className="eyebrow-mini">— By appointment —</div>
-          <h2>
-            <span className="h-line">
-              <span className="inner">Reserve</span>
-            </span>
-            <span className="h-line">
-              <span className="inner">
-                your <em>ritual</em>.
-              </span>
-            </span>
-          </h2>
-          <div className="phone-cta">
-            <span className="lab">Call us</span>
-            <a className="num" href={`tel:+91${SITE.phone.replace(/\s/g, '')}`}>
-              {SITE.phone}
-            </a>
-          </div>
-          <div className="meta">
-            <span>Open daily · 10:00 — 22:00</span>
-            <span className="dot" />
-            <span>Madhurawada, Visakhapatnam</span>
           </div>
         </div>
       </section>
